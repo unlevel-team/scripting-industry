@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="objects-and-arrays">
+    <title value="Objects and arrays on python" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+        Objects and arrays on python
+      ]]>
+    </description>
+    <concept name="lists">
+      <title value="Lists" />
+      <docLink value="https://www.w3schools.com/python/python_lists.asp" />
+      <description>
+        <![CDATA[
+Lists are used to store multiple items in a single variable.<br>
+Lists are one of 4 built-in data types in Python used to store collections of data, the other 3 are <strong>Tuple</strong>, <strong>Set</strong>, and 
+<strong>Dictionary</strong>, all with different qualities and usage.<br>
+Lists are created using square brackets<br>
+<code>thislist = ["apple", "banana", "cherry"]</code><br>
+List items are ordered, changeable, and allow duplicate values.<br>
+To determine how many items a list has, use the <code>len()</code> function<br>
+It is also possible to use the <code>list()</code> constructor when creating a new list.<br>
+List items are indexed and you can access them by referring to the <strong>index number</strong><br>
+<strong>Negative indexing</strong> means start from the end.<br>
+-1 refers to the last item, -2 refers to the second last item etc.<br>
+You can specify a <strong>range of indexes</strong> by specifying where to start and where to end the range.<br>
+When specifying a range, the return value will be a new list with the specified items.<br>
+Specify negative indexes if you want to start the search from the end of the list.<br>
+To determine if a specified item is present in a list use the <code>in</code> keyword.<br>
+To <strong>change the value</strong> of a specific item, refer to the <strong>index number</strong>.<br>
+To change the value of items within a specific range, define a list with the new values, and refer to the range of index numbers where you want to insert the new values<br>
+To add an item to the end of the list, use the <code>append()</code> method<br>
+The <code>insert()</code> method inserts an item at the specified index<br>
+To append elements from another list to the current list, use the <code>extend()</code> method. Can add any iterable object (tuples, sets, dictionaries etc.)<br>
+The <code>remove()</code> method removes the specified item.<br>
+The <code>pop()</code> method removes the specified index. If you do not specify the index, the <code>pop()</code> method removes the last item.<br>
+The <code>del</code> keyword removes the specified index and can also delete the list completely.<br>
+The <code>clear()</code> method empties the list. The list still remains, but it has no content.<br>
+You can <strong>loop</strong> through the list items by using a <code>for</code> loop.<br>
+You can also loop through the list items by referring to their <strong>index number</strong>. 
+Use the <code>range()</code> and <code>len()</code> functions to create a suitable iterable.<br>
+You can loop through the list items by using a <code>while</code> loop.<br>
+List comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list.<br>
+<code>newlist = [expression for item in iterable if condition == True]</code><br>
+List objects have a <code>sort()</code> method that will sort the list alphanumerically, ascending, by default.<br>
+To sort descending, use the keyword argument <code>reverse = True</code><br>
+You can also customize your own function by using the keyword argument <code>key = function</code>.<br>
+The <code>reverse()</code> method reverses the current sorting order of the elements.<br>
+To <strong>copy</strong> a list you can use the methods <code>copy()</code> or <code>list()</code>.<br>
+Yoy can <strong>join</strong> two or more list with the <code>+</code> operator.<br>
+You can use the <code>extend()</code> method, which purpose is to add elements from one list to another list<br>
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+# len() method
+thislist = ["apple", "banana", "cherry"]
+print(len(thislist))
+
+# list() constructor
+thislist = list(("apple", "banana", "cherry")) # note the double round-brackets
+
+# Access items
+print(thislist[1])
+
+# Negative indexing. Print the last item of the list.
+print(thislist[-1])
+
+# Range of indexes. Return the third, fourth, and fifth item
+print(thislist[2:5])
+
+# Range of negative indexes. This example returns the items from "orange" (-4) to, but NOT including "mango" (-1)
+thislist = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
+print(thislist[-4:-1])
+
+# Check if Item Exists
+thislist = ["apple", "banana", "cherry"]
+if "apple" in thislist:
+  print("Yes, 'apple' is in the fruits list")
+
+# Change Item Value
+thislist = ["apple", "banana", "cherry"]
+thislist[1] = "blackcurrant"
+print(thislist)
+
+# Change a Range of Item Values
+thislist = ["apple", "banana", "cherry", "orange", "kiwi", "mango"]
+thislist[1:3] = ["blackcurrant", "watermelon"]
+print(thislist)
+
+# Append Items
+thislist.append("orange")
+
+# Insert Items
+thislist = ["apple", "banana", "cherry"]
+thislist.insert(2, "watermelon")
+print(thislist)
+
+# Extend List
+thislist = ["apple", "banana", "cherry"]
+tropical = ["mango", "pineapple", "papaya"]
+thislist.extend(tropical)
+print(thislist)
+
+# Remove Specified Item
+thislist.remove("banana")
+
+# Remove Specified Index
+thislist.pop(1)
+
+# del() method
+del thislist[0]
+del thislist
+
+# Clear the List
+thislist.clear()
+
+# Loop Through a List
+for x in thislist:
+  print(x)
+
+# Loop Through the Index Numbers
+for i in range(len(thislist)):
+  print(thislist[i])
+
+# Using a While Loop
+i = 0
+while i < len(thislist):
+  print(thislist[i])
+  i = i + 1
+
+# List Comprehension
+newlist = []
+for x in fruits:
+  if "a" in x:
+    newlist.append(x)
+
+newlist = [x for x in fruits if "a" in x]
+
+# Sort List Alphanumerically
+thislist.sort()
+
+# Sort Descending
+thislist.sort(reverse = True)
+
+# Customize Sort Function. Sort the list based on how close the number is to 50
+def myfunc(n):
+  return abs(n - 50)
+
+thislist = [100, 50, 65, 82, 23]
+thislist.sort(key = myfunc)
+
+# Case Insensitive Sort
+thislist.sort(key = str.lower)
+
+# Reverse Order
+thislist.reverse()
+
+# Copy a List
+mylist = thislist.copy()
+mylist = list(thislist)
+
+# Join Two Lists
+list3 = list1 + list2
+list1.extend(list2) # add list2 at the end of list1
+
+        ]]>
+      </code>
+    </concept>
+    <concept name="tuple">
+      <title value="Tuples" />
+      <docLink value="https://www.w3schools.com/python/python_tuples.asp" />
+      <description>
+        <![CDATA[
+Tuple items are ordered, unchangeable, and allow duplicate values.<br>
+<code>thistuple = ("apple", "banana", "cherry", "apple", "cherry")</code><br>
+To determine how many items a tuple has, use the <code>len()</code> function<br>
+To create a <strong>tuple with only one item</strong>, you have to add a comma after the item, otherwise Python will not recognize it as a tuple.<br>
+It is also possible to use the <code>tuple()</code> constructor to make a tuple.<br>
+You can access tuple items by referring to the <strong>index number</strong>, inside square brackets.<br>
+Tuples allow <strong>negative indexing</strong> and <strong>range of indexes</strong> just like lists.<br>
+To determine if a specified item is present in a tuple use the <code>in</code> keyword.<br>
+Tuples are <strong>unchangeable</strong>, or <strong>immutable</strong> as it also is called.<br>
+But there is a <strong>workaround</strong>. You can convert the tuple into a list, change the list, and convert the list back into a tuple.<br>
+When we create a tuple, we normally assign values to it. This is called <strong>"packing"</strong> a tuple.<br>
+We are also allowed to extract the values back into variables. This is called <strong>"unpacking"</strong>.<br>
+If the number of variables is less than the number of values, you can add an <code>*</code> to the variable name and the values will be assigned to the variable as a list<br>
+If the asterisk is added to another variable name than the last, Python will assign values to the variable until the number of values left matches the number of variables left.<br>
+You can loop through the tuple items by using a <code>for</code> loop.<br>
+You can also loop through the tuple items by referring to their <strong>index number</strong>.<br>
+Use the <code>range()</code> and <code>len()</code> functions to create a suitable iterable.<br>
+You can loop through the list items by using a <code>while</code> loop.<br>
+To <strong>join</strong> two or more tuples you can use the <code>+</code> operator.<br>
+If you want to <strong>multiply</strong> the content of a tuple a given number of times, you can use the <code>*</code> operator.
+
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+# Tuple Length
+thistuple = ("apple", "banana", "cherry")
+print(len(thistuple))
+
+# Create Tuple With One Item
+thistuple = ("apple",)
+print(type(thistuple))
+
+# The tuple() Constructor
+thistuple = tuple(("apple", "banana", "cherry")) # note the double round-brackets
+
+# Access Tuple Items
+print(thistuple[1])
+
+# Check if Item Exists
+if "apple" in thistuple:
+  print("Yes, 'apple' is in the fruits tuple")
+
+# Convert the tuple into a list to be able to change it
+x = ("apple", "banana", "cherry")
+y = list(x)
+y[1] = "kiwi"
+x = tuple(y)
+
+# Unpacking a Tuple
+(green, yellow, red) = fruits
+
+# Using Asterisk *. Assign the rest of the values as a list called "red"
+fruits = ("apple", "banana", "cherry", "strawberry", "raspberry")
+(green, yellow, *red) = fruits
+
+fruits = ("apple", "mango", "papaya", "pineapple", "cherry") # Add a list of values to the "tropic" variable
+(green, *tropic, red) = fruits
+
+# Loop Through a Tuple
+for x in thistuple:
+  print(x)
+
+# Loop Through the Index Numbers
+for i in range(len(thistuple)):
+  print(thistuple[i])
+
+# Using a While Loop
+i = 0
+while i < len(thistuple):
+  print(thistuple[i])
+  i = i + 1
+
+# Join Two Tuples
+tuple3 = tuple1 + tuple2
+
+# Multiply Tuples
+mytuple = fruits * 2
+        ]]>
+      </code>
+    </concept>
+    <concept name="sets">
+      <title value="Sets" />
+      <docLink value="https://www.w3schools.com/python/python_sets.asp" />
+      <description>
+        <![CDATA[
+A set is a <strong>collection</strong> which is both <strong>unordered</strong> and <strong>unindexed</strong>.<br>
+Sets are <strong>unchangeable</strong>, and <strong>do not allow duplicate values</strong><br>
+Sets are written with curly brackets.<br>
+To determine how many items a set has, use the <code>len()</code> method.<br>
+It is also possible to use the <code>set()</code> constructor to make a set.<br>
+You <strong>cannot access</strong> items in a set by referring to an <strong>index</strong> or a <strong>key</strong>.<br>
+But you can loop through the set items using a <code>for</code> loop, or ask if a specified value is present in a set, by using the <code>in</code> keyword.<br>
+Once a set is created, you cannot change its items, but you can add new items.<br>
+To add one item to a set use the <code>add()</code> method.<br>
+To add items from another set into the current set, use the <code>update()</code> method. It can be any iterable object (tuples, lists, dictionaries etc.)<br>
+To remove an item in a set, use the <code>remove()</code>, or the <code>discard()</code> method.<br>
+You can also use the <code>pop()</code> method to remove an item, but this method will remove the last item. Remember that sets are <strong>unordered</strong>, so you will not know what item that gets removed.<br>
+The <code>clear()</code> method empties the set.<br>
+The <code>del</code> keyword will delete the set completely.<br>
+You can loop through the set items by using a <code>for</code> loop.<br>
+To join two or more sets you can use the <code>union()</code> method that returns a new set containing all items from both sets, or the <code>update()</code> method that inserts all the items from one set into another.<br>
+The <code>intersection_update()</code> method will keep only the items that are present in both sets.<br>
+The <code>intersection()</code> method will return a new set, that only contains the items that are present in both sets.<br>
+The <code>symmetric_difference_update()</code> method will keep only the elements that are NOT present in both sets.<br>
+The <code>symmetric_difference()</code> method will return a new set, that contains only the elements that are NOT present in both sets.<br>
+
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+# Duplicates Not Allowed. Duplicate values will be ignored
+thisset = {"apple", "banana", "cherry", "apple"}
+
+# Check if "banana" is present in the set
+print("banana" in thisset)
+
+# Add Items
+thisset.add("orange")
+
+# Add Sets
+thisset = {"apple", "banana", "cherry"}
+tropical = {"pineapple", "mango", "papaya"}
+thisset.update(tropical)
+
+# Remove Item
+thisset.remove("banana")
+thisset.discard("banana")
+
+# Remove the last item by using the pop() method
+x = thisset.pop()
+
+# The clear() method empties the set
+thisset.clear()
+
+# The del keyword will delete the set completely
+del thisset
+
+# Loop Items
+for x in thisset:
+  print(x)
+
+# The union() method returns a new set with all items from both sets
+set1 = {"a", "b" , "c"}
+set2 = {1, 2, 3}
+set3 = set1.union(set2)
+
+# The update() method inserts the items in set2 into set1
+set1 = {"a", "b" , "c"}
+set2 = {1, 2, 3}
+set1.update(set2)
+
+# Keep ONLY the Duplicates
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+x.intersection_update(y)
+
+# Return a set that contains the items that exist in both set x, and set y
+z = x.intersection(y)
+
+# Keep All, But NOT the Duplicates
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+x.symmetric_difference_update(y)
+
+# Keep the items that are not present in both sets
+x.symmetric_difference_update(y)
+        ]]>
+      </code>
+    </concept>
+    <concept name="dictionaries">
+      <title value="Dictionaries" />
+      <docLink value="https://www.w3schools.com/python/python_dictionaries.asp" />
+      <description>
+        <![CDATA[
+Dictionary items are ordered, changeable, and does not allow duplicates.<br>
+Dictionary items are presented in key:value pairs, and can be referred to by using the key name.<br>
+<code>
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+</code><br>
+To determine how many items a dictionary has, use the <code>len()</code> function.<br>
+You can access the items of a dictionary by referring to its <strong>key name</strong>, inside square brackets.<br>
+There is also a method called <code>get()</code> for access the items.<br>
+The <code>keys()</code> method will return a list of all the keys in the dictionary.<br>
+The <code>values()</code> method will return a list of all the values in the dictionary.<br>
+The <code>items()</code> method will return each item in a dictionary, as tuples in a list.<br>
+To determine if a specified key is present in a dictionary use the <code>in</code> keyword.<br>
+You can <strong>change the value</strong> of a specific item by referring to its <strong>key name</strong>.<br>
+The <code>update()</code> method will update the dictionary with the items from the given argument.
+The argument must be a dictionary, or an iterable object with key:value pairs.<br>
+<strong>Adding an item</strong> to the dictionary is done by using a new <strong>index key</strong> and assigning a <strong>value</strong> to it.
+The <code>pop()</code> method removes the item with the specified key name.<br>
+The <code>popitem()</code> method removes the last inserted item.<br>
+The <code>del</code> keyword removes the item with the specified key name. Can also delete the dictionary completely.<br>
+The <code>clear()</code> method empties the dictionary.<br>
+You can loop through a dictionary by using a <code>for</code> loop. When looping through a dictionary, the return value are the keys of the dictionary, 
+but there are methods to return the values as well. <br>
+Make a copy of a dictionary with the <code>copy()</code> method or the built-in function <code>dict()</code>.<br>
+A dictionary can contain dictionaries, this is called <strong>nested dictionaries</strong>.<br>
+
+
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+
+# Print the number of items in the dictionary
+print(len(thisdict))
+
+# Accessing Items
+x = thisdict["model"]
+x = thisdict.get("model")
+
+# Get Keys
+x = thisdict.keys()
+
+# Get Values
+x = thisdict.values()
+
+# Get a list of the key:value pairs
+x = thisdict.items()
+
+# Check if Key Exists
+if "model" in thisdict:
+  print("Yes, 'model' is one of the keys in the thisdict dictionary")
+
+# Change Values
+thisdict["year"] = 2018
+
+# Adding Items
+thisdict["color"] = "red"
+
+# Update Dictionary
+thisdict.update({"year": 2020})
+
+# Removing Items
+thisdict.pop("model")
+thisdict.popitem()
+del thisdict["model"]
+
+# Delete the dictionary
+del thisdict
+
+# The clear() method empties the dictionary
+thisdict.clear()
+
+# Print all key names in the dictionary, one by one
+for x in thisdict:
+  print(x)
+
+# Print all values in the dictionary, one by one
+for x in thisdict:
+  print(thisdict[x])
+
+# You can also use the values() method to return values of a dictionary
+for x in thisdict.values():
+  print(x)
+
+# You can use the keys() method to return the keys of a dictionary
+for x in thisdict.keys():
+  print(x)
+
+# Loop through both keys and values, by using the items() method
+for x, y in thisdict.items():
+  print(x, y)
+
+# Nested Dictionaries
+myfamily = {
+  "child1" : {
+    "name" : "Emil",
+    "year" : 2004
+  },
+  "child2" : {
+    "name" : "Tobias",
+    "year" : 2007
+  },
+  "child3" : {
+    "name" : "Linus",
+    "year" : 2011
+  }
+}
+
+# Create three dictionaries, then create one dictionary that will contain the other three dictionaries
+child1 = {
+  "name" : "Emil",
+  "year" : 2004
+}
+child2 = {
+  "name" : "Tobias",
+  "year" : 2007
+}
+child3 = {
+  "name" : "Linus",
+  "year" : 2011
+}
+
+myfamily = {
+  "child1" : child1,
+  "child2" : child2,
+  "child3" : child3
+}
+        ]]>
+      </code>
+    </concept>
+  </topic>
+</data>

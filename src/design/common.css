@@ -1,0 +1,68 @@
+@font-face {
+  font-family: sourceCodePro;
+  src: url(./assets/fonts/source-code-pro-v14-latin-regular.woff2);
+}
+
+@font-face {
+  font-family: chakra;
+  src: url(./assets/fonts/chakra-petch-v4-latin-regular.woff2);
+}
+
+@font-face {
+  font-family: montserrat;
+  src: url(./assets/fonts/montserrat-v18-latin-regular.woff2);
+}
+
+@font-face {
+  font-family: permanent-marker;
+  src: url(./assets/fonts/permanent-marker-v10-latin-regular.woff2);
+}
+
+@font-face {
+  font-family: righteous;
+  src: url(./assets/fonts/righteous-v9-latin-regular.woff2);
+}
+
+@font-face {
+  font-family: teko;
+  src: url(./assets/fonts/teko-v10-latin-regular.woff2);
+}
+
+
+:root {
+  --color-primary-background: #0a0a0aff;
+  --color-primary-foreground: #525252ff;
+  --color-primary-detail-1: #7f7f7fff;
+  --color-primary-detail-2: #a5a5a5ff;
+  --color-primary-detail-3: #f2f2f2ff;
+
+  --color-secondary-1-background: #313131ff;
+  --color-secondary-1-foreground: #3d3d3dff;
+  --color-secondary-1-detail-1: #474747ff;
+  --color-secondary-1-detail-2: #a5a5a5ff;
+  --color-secondary-1-detail-3: #ffe066ff;
+
+  --color-secondary-2-background: #131313ff;
+  --color-secondary-2-foreground: #1f1f1fff;
+  --color-secondary-2-detail-1: #12684eff;
+  --color-secondary-2-detail-2: #70c1b3ff;
+  --color-secondary-2-detail-3: #ccccccff;
+}
+
+/*
+Color palettes
+https://coolors.co/0a0a0a-141414-1f1f1f-292929-333333-3d3d3d-474747-525252
+https://coolors.co/131313-1f1f1f-313131-3d3d3d-595959-7f7f7f-a5a5a5-cccccc-f2f2f2
+https://coolors.co/a2999e-12684e-ffe066-70c1b3-1f1f1f
+*/
+
+/* @see https://www.w3schools.com/css/css3_buttons.asp */
+.button {
+  display: inline-block;
+  padding: 15px 32px;
+  border: none;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}

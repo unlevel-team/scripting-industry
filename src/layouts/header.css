@@ -1,0 +1,96 @@
+.header {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+
+  width: 100%;
+  min-height: var(--layouts-header-height);
+  max-height: var(--layouts-header-height);
+
+  background-color: var(--color-secondary-2-background);
+  color: var(--color-primary-detail-2);
+}
+
+.header .title {
+  display: inline-block;
+  padding-left: 0.5em;
+  padding-top: 0.5em;
+  font-family: montserrat;
+  font-size: 2em;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+/* Links ------------------------------------------------------------------ */
+.header .links {
+  display: inline;
+  float: right;
+  padding-top: 0.5em;
+  padding-right: 0.5em;
+}
+
+.header .links a {
+  text-decoration: none;
+}
+
+.header .links .image {
+  display: inline-block;
+  background-color: var(--color-secondary-1-foreground);
+  height: 50px;
+  width: 50px;
+  border-radius: 0.7em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation-name: animation-link-image-out;
+  animation-duration: 309ms;
+  animation-fill-mode: forwards;
+}
+
+.header .links .image:hover {
+  animation-name: animation-link-image-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animation-link-image-in {  /* Animation for the link image IN */
+  from {background-color: var(--color-secondary-1-foreground);}
+  to {background-color: var(--color-primary-detail-2);}
+}
+
+@keyframes animation-link-image-out {  /* Animation for the link image OUT */
+  from {background-color: var(--color-primary-detail-2);}
+  to {background-color: var(--color-secondary-1-foreground);}
+}
+
+.header .links .info-image {
+  background-image: url("./assets/images/information-icon.svg");
+}
+
+.header .links .github-image {
+  background-image: url("./assets/images/GitHub-Mark-120px-plus.png");
+}
+
+/* Modal ------------------------------------------------------------------ */
+/* .header #modal-info .modal-header { */
+.header .modal.info .modal-header {
+  background-color: var(--color-secondary-2-detail-1);
+  color: var(--color-secondary-1-detail-3);
+
+  font-family: chakra;
+  font-size: 0.87em;
+}
+
+/* .header #modal-info .modal-body { */
+.header .modal.info .modal-body {
+  background-color: var(--color-primary-detail-3);
+  color: var(--color-secondary-2-foreground);
+
+  font-family: 'sourceCodePro';
+  font-size: 1em;
+}
+
+.header .modal.info .modal-body a {
+  background-color: var(--color-secondary-1-detail-3);
+  color: var(--color-secondary-2-foreground);
+}

@@ -1,0 +1,76 @@
+section.concept {
+  padding-top: 0.3em;
+}
+
+section.concept h2.title {
+  margin-block-start: 0.1em;
+  margin-block-end: 0.1em;
+  font-family: righteous;
+  font-variant: small-caps;
+  font-size: 1.9em;
+  font-weight: normal;
+  letter-spacing: 0.11em;
+}
+
+/* Documentation link --------------------------------------------------------- */
+
+section.concept a.docLink {
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 0.5em;
+  background-color: var(--color-primary-foreground);
+  color: var(--color-primary-background);
+  text-decoration: none;
+  animation-name: animation-docLink-out;
+  animation-duration: 190ms;
+  animation-fill-mode: forwards;
+}
+
+section.concept a.docLink:hover {
+  animation-name: animation-docLink-in;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animation-docLink-in {  /* Animation for the docLink IN */
+  from {
+    background-color: var(--color-primary-foreground);
+    color: var(--color-primary-background);
+  }
+  to {
+    background-color: var(--color-secondary-2-detail-2);
+    color: var(--color-secondary-2-background);
+  }
+}
+
+@keyframes animation-docLink-out {  /* Animation for the docLink OUT */
+  from {
+    background-color: var(--color-secondary-2-detail-2);
+    color: var(--color-secondary-2-background);
+  }
+  to {
+    background-color: var(--color-primary-foreground);
+    color: var(--color-primary-background);
+  }
+}
+
+/* Description --------------------------------------------------------- */
+
+section.concept .description {
+  padding-top: 0.7em;
+  padding-bottom: 0.3em;
+}
+
+section.concept .description code {
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  /* padding-top: 0.1em;
+  padding-bottom: 0.1em; */
+  border-radius: 0.7em;
+  vertical-align: middle;
+  font-family: 'chakra';
+  font-size: 0.9em;
+  letter-spacing: 0.1em;
+  background-color: var(--color-secondary-1-background);
+  color: var(--color-secondary-2-detail-2);
+}

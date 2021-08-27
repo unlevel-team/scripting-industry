@@ -1,0 +1,59 @@
+{
+  "version": "0.0.1",
+  "contexts": ["bash", "javascript", "python"],
+  "topics": ["variables", "objects-and-arrays"],
+  "contexts-config": {
+    "bash": {
+      "topics": {
+        "variables": {
+          "data-file": "bash/variables.xml"
+        },
+        "objects-and-arrays": {
+          "data-file": "bash/objects-and-arrays.xml"
+        }
+      }
+    },
+    "javascript": {
+      "topics": {
+        "variables": {
+          "data-file": "javascript/variables.xml"
+        },
+        "objects-and-arrays": {
+          "data-file": "javascript/objects-and-arrays.xml"
+        }
+      }
+    },
+    "python": {
+      "topics": {
+        "variables": {
+          "data-file": "python/variables.xml"
+        },
+        "objects-and-arrays": {
+          "data-file": "python/objects-and-arrays.xml"
+        }
+      }
+    }
+  },
+  "router": {
+    "basePath": "/",
+    "default": "/variables",
+    "routes": {
+      "variables": { "url": "/variables" },
+      "objects-and-arrays": { "url": "/objects-and-arrays" }
+    }
+  },
+  "sidebar": {
+    "links": {
+      "variables": { "text": "Variables", "url": "./variables" },
+      "objects-and-arrays": { "text": "Objects and arrays", "url": "./objects-and-arrays" }
+    }
+  },
+  "context-picker": {
+    "default": "bash",
+    "buttons": {
+      "bash": { "text": "Bash" },
+      "javascript": { "text": "Javascript" },
+      "python": { "text": "Python" }
+    }
+  }
+}

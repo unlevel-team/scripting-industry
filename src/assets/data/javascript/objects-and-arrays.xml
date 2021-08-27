@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="objects-and-arrays">
+    <title value="Objects and arrays on javascript" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+        Objects and arrays on javascript
+      ]]>
+    </description>
+    <concept name="creating-an-array">
+      <title value="Creating an Array" />
+      <docLink value="https://www.w3schools.com/js/js_arrays.asp" />
+      <description>
+        <![CDATA[
+<code>const array_name = [item1, item2, ...];</code><br>
+An array is a special variable, which can hold more than one value at a time.<br>
+Using an array literal is the easiest way to create a JavaScript Array.<br>
+Spaces and line breaks are not important. A declaration can span multiple lines <br>
+You can also create an array, and then provide the elements.<br>
+
+In JavaScript, arrays use <code>numbered indexes</code>.<br>
+In JavaScript, objects use <code>named indexes</code>.
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+const cars = ["Saab", "Volvo", "BMW"]; // Array literal
+
+const cars_b = [  // with space and line breaks
+  "Saab",
+  "Volvo",
+  "BMW"
+];
+
+const cars = [];  // Create an array an then provide elements
+cars[0]= "Saab";
+cars[1]= "Volvo";
+cars[2]= "BMW";
+
+const cars = new Array("Saab", "Volvo", "BMW"); // Using the JavaScript Keyword new
+        ]]>
+      </code>
+    </concept>
+    <concept name="working-with-arrays">
+      <title value="Working with arrays" />
+      <docLink value="https://www.w3schools.com/js/js_arrays.asp" />
+      <description>
+        <![CDATA[
+Arrays are Objects.
+These are the common operations with arrays.
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+// You access an array element by referring to the index number
+const cars = ["Saab", "Volvo", "BMW"];
+let x = cars[0];    // x = "Saab"
+
+cars[0] = "Opel"; // Changing an Array Element
+
+// The length Property
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.length;   // Returns 4
+        ]]>
+      </code>
+    </concept>
+    <concept name="array-methods">
+      <title value="Array Methods" />
+      <docLink value="https://www.w3schools.com/js/js_array_methods.asp" />
+      <description>
+        <![CDATA[
+The JavaScript method <code>toString()</code> converts an array to a string of (comma separated) array values.<br>
+The <code>join()</code> method also joins all array elements into a string.<br>
+The <code>pop()</code> method removes the last element from an array and returns the value that was "popped out".<br>
+The <code>push()</code> method adds a new element to an array (at the end) and returns the new array length.<br>
+The <code>shift()</code> method removes the first array element and "shifts" all other elements to a lower index and returns the value that was "shifted out"<br>
+The <code>unshift()</code> method adds a new element to an array (at the beginning), and "unshifts" older elements. Returns the new array length<br>
+Since JavaScript arrays are objects, elements can be deleted by using the JavaScript operator <code>delete</code>.<br>
+The <code>splice()</code> method can be used to add new items to an array. 
+The first parameter defines the position <strong>where</strong> new elements should be <strong>added</strong> (spliced in).
+The second parameter defines <strong>how many</strong> elements should be <strong>removed</strong>.<br>
+The <code>concat()</code> method creates a new array by merging (concatenating) existing arrays. Returns a new array.<br>
+The <code>slice()</code> method slices out a piece of an array into a new array. Creates a new array. Can take two arguments like <code>slice(1, 3)</code>
+selects elements from the start argument, and up to (but not including) the end argument. If the end argument is omitted slices out the rest of the array.<br>
+
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.toString();  // result: Banana,Orange,Apple,Mango
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.join(" * ");  // result: Banana * Orange * Apple * Mango
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];  // Pop method
+let x = fruits.pop();  // x = "Mango"
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];  // Push method
+let x = fruits.push("Kiwi");  //  x = 5
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];  // Shift method
+let x = fruits.shift();  // x = "Banana"
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];  // The unshift
+fruits.unshift("Lemon"); // Returns 5
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];  // Deleting Elements
+delete fruits[0];  // Changes the first element in fruits to undefined
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];  // Splice method
+fruits.splice(2, 2, "Lemon", "Kiwi");
+
+const arr1 = ["Cecilie", "Lone"]; // Concat method
+const arr2 = ["Emil", "Tobias", "Linus"];
+const arr3 = ["Robin", "Morgan"];
+const myChildren = arr1.concat(arr2, arr3);
+
+const arr1 = ["Emil", "Tobias", "Linus"]; // Concat using values
+const myChildren = arr1.concat("Peter");
+
+const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"]; // Slice method
+const citrus = fruits.slice(1, 3);
+        ]]>
+      </code>
+    </concept>
+    <concept name="sorting-arrays">
+      <title value="Sorting Arrays" />
+      <docLink value="https://www.w3schools.com/js/js_array_sort.asp" />
+      <description>
+        <![CDATA[
+The <code>sort()</code> method sorts an array alphabetically<br>
+The <code>reverse()</code> method reverses the elements in an array. You can use it to sort an array in descending order<br>
+The <code>sort()</code> method will produce incorrect result when sorting numbers you can fix this by providing a <strong>compare function</strong>.
+The compare function should return a negative, zero, or positive value, depending on the arguments. <code>function(a, b){return a - b}</code>
+If the result is negative a is sorted before b. If the result is positive b is sorted before a. If the result is 0 no changes are done with the sort order of the two values.
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+const fruits = ["Banana", "Orange", "Apple", "Mango"];  // Sort method
+fruits.sort();        // Sorts the elements of fruits
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];  // Reverse method
+fruits.sort();        // First sort the elements of fruits
+fruits.reverse();     // Then reverse the order of the elements
+
+const points = [40, 100, 1, 5, 25, 10]; // Sorting with compare function
+points.sort(function(a, b){return a - b});
+        ]]>
+      </code>
+    </concept>
+    <concept name="array-iteration">
+      <title value="Array Iteration" />
+      <docLink value="https://www.w3schools.com/js/js_array_iteration.asp" />
+      <description>
+        <![CDATA[
+Array iteration methods operate on every array item.<br>
+The <code>forEach()</code> method calls a function (a callback function) once for each array element.<br>
+The <code>map()</code> method creates a new array by performing a function on each array element.<br>
+The <code>map()</code> method does not execute the function for array elements without values.<br>
+The <code>map()</code> method does not change the original array.<br>
+The <code>filter()</code> method creates a new array with array elements that passes a test<br>
+The <code>reduce()</code> method runs a function on each array element to produce (reduce it to) a single value.<br>
+The <code>reduce()</code> method works from left-to-right in the array.<br>
+The <code>reduce()</code> method does not reduce the original array.<br>
+The <code>reduceRight()</code> method runs a function on each array element to produce (reduce it to) a single value.<br>
+The <code>reduceRight()</code> works from right-to-left in the array.<br>
+The <code>reduceRight()</code> method does not reduce the original array.<br>
+The <code>every()</code> method check if all array values pass a test.<br>
+The <code>some()</code> method check if some array values pass a test.<br>
+The <code>indexOf()</code> method searches an array for an element value and returns its position.<br>
+<code>Array.lastIndexOf()</code> is the same as <code>Array.indexOf()</code>, but returns the position of the last occurrence of the specified element.<br>
+ECMAScript 2016 introduced <code>Array.includes()</code> to arrays. This allows us to check if an element is present in an array (including NaN, unlike indexOf).<br>
+The <code>find()</code> method returns the value of the first array element that passes a test function.<br>
+The <code>findIndex()</code> method returns the index of the first array element that passes a test function.<br>
+The <code>Array.from()</code> method returns an Array object from any object with a length property or any iterable object.<br>
+The <code>Array.keys()</code> method returns an Array Iterator object with the keys of an array.<br>
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+// foreach method
+const numbers = [45, 4, 9, 16, 25];
+let txt = "";
+numbers.forEach(myFunction);
+
+function myFunction(value, index, array) {
+  txt += value + "<br>";
+}
+
+// map method
+const numbers1 = [45, 4, 9, 16, 25];
+const numbers2 = numbers1.map(myFunction);
+
+function myFunction(value, index, array) {
+  return value * 2;
+}
+
+// filter method
+const numbers = [45, 4, 9, 16, 25];
+const over18 = numbers.filter(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+
+// reduce method
+const numbers = [45, 4, 9, 16, 25];
+let sum = numbers.reduce(myFunction);
+
+function myFunction(total, value, index, array) {
+  return total + value;
+}
+
+// reduceRight method
+const numbers = [45, 4, 9, 16, 25];
+let sum = numbers1.reduceRight(myFunction);
+
+function myFunction(total, value, index, array) {
+  return total + value;
+}
+
+// every method
+const numbers = [45, 4, 9, 16, 25];
+let allOver18 = numbers.every(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+
+// some method
+const numbers = [45, 4, 9, 16, 25];
+let someOver18 = numbers.some(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+
+// indexOf method
+const fruits = ["Apple", "Orange", "Apple", "Mango"];
+let position = fruits.indexOf("Apple") + 1;
+
+// lastIndexOf method
+const fruits = ["Apple", "Orange", "Apple", "Mango"];
+let position = fruits.lastIndexOf("Apple") + 1;
+
+// includes method
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.includes("Mango"); // is true
+
+// find method
+const numbers = [4, 9, 16, 25, 29];
+let first = numbers.find(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+
+// findIndex method
+const numbers = [4, 9, 16, 25, 29];
+let first = numbers.findIndex(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+
+// from method
+Array.from("ABCDEFG")   // Returns [A,B,C,D,E,F,G]
+
+// keys method
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+const keys = fruits.keys();
+
+for (let of keys) {
+  text += x + "<br>";
+}
+        ]]>
+      </code>
+    </concept>
+    <concept name="object-definition">
+      <title value="Object Definition" />
+      <docLink value="https://www.w3schools.com/js/js_objects.asp" />
+      <description>
+        <![CDATA[
+You define (and create) a JavaScript object with an object literal.<br>
+Spaces and line breaks are not important. An object definition can span multiple lines.<br>
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+        ]]>
+      </code>
+      <code language="javascript">
+        <![CDATA[
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+        ]]>
+      </code>
+    </concept>
+    <concept name="object-properties-methods">
+      <title value="Object properties and methods" />
+      <docLink value="https://www.w3schools.com/js/js_objects.asp" />
+      <description>
+        <![CDATA[
+The <strong>name:values</strong> pairs in JavaScript objects are called <strong>properties</strong>.<br>
+You can access object properties in two ways:<br>
+<code>objectName.propertyName</code><br>
+or<br>
+<code>objectName["propertyName"]</code><br>
+
+Objects can also have <strong>methods</strong>.<br>
+Methods are <strong>actions</strong> that can be performed on objects.<br>
+Methods are stored in properties as <strong>function definitions</strong>.<br>
+In a function definition, <code>this</code> refers to the "owner" of the function.<br>
+You access an object method with the following syntax:<br>
+<code>objectName.methodName()</code>
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+        ]]>
+      </code>
+      <code language="javascript">
+        <![CDATA[
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+        ]]>
+      </code>
+      <code language="javascript">
+        <![CDATA[
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+name = person.fullName();
+        ]]>
+      </code>
+    </concept>
+  </topic>
+</data>
