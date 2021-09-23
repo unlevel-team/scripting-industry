@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="conditions-and-cases">
+    <title value="Conditions and cases on bash" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+        Conditions and cases on bash
+      ]]>
+    </description>
+    <concept name="test">
+      <title value="Test" />
+      <docLink value="https://www.shellscript.sh/test.html" />
+      <description>
+        <![CDATA[
+Test is used by virtually every shell script written. It may not seem that way, because <code>test</code> is not often called directly. 
+<code>test</code> is more frequently called as <code>[</code>. <code>[</code> is a symbolic link to <code>test</code>, just to make shell programs more readable. <br>
+Test is a simple but powerful comparison utility. For full details, run <code>man test</code> on your system, but here are some usages and typical examples. <br>
+Test is most often invoked indirectly via the <code>if</code> and <code>while</code> statements. <br>
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+if [ ... ]
+then
+  # if-code
+else
+  # else-code
+fi
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+if  [ something ]; then
+ echo "Something"
+ elif [ something_else ]; then
+   echo "Something else"
+ else
+   echo "None of the above"
+fi
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+$ X=5
+$ export X
+$ ./test.sh
+  ... output of test.sh ...
+$ X=hello
+$ ./test.sh
+  ... output of test.sh ...
+$ X=test.sh
+$ ./test.sh
+  ... output of test.sh ...
+
+
+# file test.sh
+#!/bin/sh
+if [ "$X" -lt "0" ]
+then
+  echo "X is less than zero"
+fi
+if [ "$X" -gt "0" ]; then
+  echo "X is more than zero"
+fi
+[ "$X" -le "0" ] && \
+      echo "X is less than or equal to  zero"
+[ "$X" -ge "0" ] && \
+      echo "X is more than or equal to zero"
+[ "$X" = "0" ] && \
+      echo "X is the string or number \"0\""
+[ "$X" = "hello" ] && \
+      echo "X matches the string \"hello\""
+[ "$X" != "hello" ] && \
+      echo "X is not the string \"hello\""
+[ -n "$X" ] && \
+      echo "X is of nonzero length"
+[ -f "$X" ] && \
+      echo "X is the path of a real file" || \
+      echo "No such file: $X"
+[ -x "$X" ] && \
+      echo "X is the path of an executable file"
+[ "$X" -nt "/etc/passwd" ] && \
+      echo "X is a file which is newer than /etc/passwd"
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+# There is a simpler way of writing if statements: The && and || commands give code to run if the result is true, or false, respectively.
+#!/bin/sh
+[ $X -ne 0 ] && echo "X isn't zero" || echo "X is zero"
+[ -f $X ] && echo "X is a file" || echo "X is not a file"
+[ -n $X ] && echo "X is of non-zero length" || \
+      echo "X is of zero length"
+        ]]>
+      </code>
+    </concept>
+    <concept name="case">
+      <title value="Case" />
+      <docLink value="https://www.shellscript.sh/case.html" />
+      <description>
+        <![CDATA[
+The <code>case</code> statement saves going through a whole set of <code>if</code> .. <code>then</code> .. </code>else</code> statements. 
+Its syntax is really quite simple. <br>
+The whole case statement is ended with <code>esac</code> (case backwards!). <br>
+Is often used to parse the parameters passed to a shell script, amongst other uses.
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+#!/bin/sh
+
+echo "Please talk to me ..."
+while :
+do
+  read INPUT_STRING
+  case $INPUT_STRING in
+	hello)
+		echo "Hello yourself!"
+		;;
+	bye)
+		echo "See you again!"
+		break
+		;;
+	*)
+		echo "Sorry, I don't understand"
+		;;
+  esac
+done
+echo 
+echo "That's all folks!"
+        ]]>
+      </code>
+    </concept>
+  </topic>
+</data>

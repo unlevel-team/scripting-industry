@@ -1,7 +1,7 @@
 {
   "version": "0.0.1",
   "contexts": ["bash", "javascript", "python"],
-  "topics": ["variables", "objects-and-arrays"],
+  "topics": ["variables", "objects-and-arrays", "conditions-and-cases"],
   "contexts-config": {
     "bash": {
       "topics": {
@@ -10,6 +10,9 @@
         },
         "objects-and-arrays": {
           "data-file": "bash/objects-and-arrays.xml"
+        },
+        "conditions-and-cases": {
+          "data-file": "bash/conditions-and-cases.xml"
         }
       }
     },
@@ -20,6 +23,9 @@
         },
         "objects-and-arrays": {
           "data-file": "javascript/objects-and-arrays.xml"
+        },
+        "conditions-and-cases": {
+          "data-file": "javascript/conditions-and-cases.xml"
         }
       }
     },
@@ -30,6 +36,9 @@
         },
         "objects-and-arrays": {
           "data-file": "python/objects-and-arrays.xml"
+        },
+        "conditions-and-cases": {
+          "data-file": "python/conditions-and-cases.xml"
         }
       }
     }
@@ -39,13 +48,15 @@
     "default": "/variables",
     "routes": {
       "variables": { "url": "/variables" },
-      "objects-and-arrays": { "url": "/objects-and-arrays" }
+      "objects-and-arrays": { "url": "/objects-and-arrays" },
+      "conditions-and-cases": { "url": "/conditions-and-cases" }
     }
   },
   "sidebar": {
     "links": {
       "variables": { "text": "Variables", "url": "./variables" },
-      "objects-and-arrays": { "text": "Objects and arrays", "url": "./objects-and-arrays" }
+      "objects-and-arrays": { "text": "Objects and arrays", "url": "./objects-and-arrays" },
+      "conditions-and-cases": { "text": "Conditions and cases", "url": "./conditions-and-cases" }
     }
   },
   "context-picker": {
