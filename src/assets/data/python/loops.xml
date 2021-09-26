@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="loops">
+    <title value="Loops on python" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+Loops on python
+      ]]>
+    </description>
+    <concept name="while-loop">
+      <title value="The while Loop" />
+      <docLink value="https://www.w3schools.com/python/python_while_loops.asp" />
+      <description>
+        <![CDATA[
+With the <code>while</code> loop we can execute a set of statements as long as a condition is true.<br>
+With the <code>break</code> statement we can stop the loop even if the while condition is true.<br>
+With the <code>continue</code> statement we can stop the current iteration, and continue with the next.<br>
+With the <code>else</code> statement we can run a block of code once when the condition no longer is true.
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+i = 1
+while i < 6:
+  print(i)
+  i += 1
+        ]]>
+      </code>
+      <code language="python">
+        <![CDATA[
+i = 1
+while i < 6:
+  print(i)
+  if i == 3:
+    break
+  i += 1
+        ]]>
+      </code>
+      <code language="python">
+        <![CDATA[
+i = 0
+while i < 6:
+  i += 1
+  if i == 3:
+    continue
+  print(i)
+        ]]>
+      </code>
+      <code language="python">
+        <![CDATA[
+i = 1
+while i < 6:
+  print(i)
+  i += 1
+else:
+  print("i is no longer less than 6")
+        ]]>
+      </code>
+    </concept>
+    <concept name="for-loops">
+      <title value="For Loops" />
+      <docLink value="https://www.w3schools.com/python/python_for_loops.asp" />
+      <description>
+        <![CDATA[
+A <code>for</code> loop is used for iterating over a sequence (that is either a list, a tuple, a dictionary, a set, or a string).<br>
+This is less like the <code>for</code> keyword in other programming languages, and works more like an iterator method as found in other object-orientated programming languages.<br>
+With the <code>for</code> loop we can execute a set of statements, once for each item in a list, tuple, set etc.<br>
+With the <code>break</code> statement we can stop the loop before it has looped through all the items.<br>
+With the <code>continue</code> statement we can stop the current iteration of the loop, and continue with the next<br>
+
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  print(x)
+
+# Looping Through a String
+for x in "banana":  
+  print(x)
+        ]]>
+      </code>
+      <code language="python">
+        <![CDATA[
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  print(x)
+  if x == "banana":
+    break
+        ]]>
+      </code>
+      <code language="python">
+        <![CDATA[
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  if x == "banana":
+    continue
+  print(x)
+        ]]>
+      </code>
+    </concept>
+    <concept name="range">
+      <title value="The range() Function" />
+      <docLink value="https://www.w3schools.com/python/python_for_loops.asp" />
+      <description>
+        <![CDATA[
+To loop through a set of code a specified number of times, we can use the <code>range()</code> function.<br>
+The <code>range()</code> function returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and ends at a specified number.<br>
+The <code>range()</code> function defaults to 0 as a starting value, however it is possible to specify the starting value by adding a parameter: <code>range(2, 6)</code>, 
+which means values from 2 to 6 (but not including 6)<br>
+The <code>range()</code> function defaults to increment the sequence by 1, however it is possible to specify the increment value by adding a third parameter: <code>range(2, 30, 3)</code>
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+for x in range(6):
+  print(x)
+
+for x in range(2, 6):
+  print(x)
+
+for x in range(2, 30, 3):
+  print(x)
+        ]]>
+      </code>
+    </concept>
+    <concept name="else-in-for-loop">
+      <title value="Else in For Loop" />
+      <docLink value="https://www.w3schools.com/python/python_for_loops.asp" />
+      <description>
+        <![CDATA[
+The <code>else</code> keyword in a <code>for</code> loop specifies a block of code to be executed when the loop is finished.<br>
+The <code>else</code> block will NOT be executed if the loop is stopped by a <code>break</code> statement.
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+for x in range(6):
+  print(x)
+else:
+  print("Finally finished!")
+
+for x in range(6):
+  if x == 3: break
+  print(x)
+else:
+  print("Finally finished!")
+        ]]>
+      </code>
+    </concept>
+    <concept name="nested-loops">
+      <title value="Nested Loops" />
+      <docLink value="https://www.w3schools.com/python/python_for_loops.asp" />
+      <description>
+        <![CDATA[
+A nested loop is a loop inside a loop.<br>
+The "inner loop" will be executed one time for each iteration of the "outer loop".
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+adj = ["red", "big", "tasty"]
+fruits = ["apple", "banana", "cherry"]
+
+for x in adj:
+  for y in fruits:
+    print(x, y)
+        ]]>
+      </code>
+    </concept>
+    <concept name="pass">
+      <title value="The pass Statement" />
+      <docLink value="https://www.w3schools.com/python/python_for_loops.asp" />
+      <description>
+        <![CDATA[
+<code>for</code> loops cannot be empty, but if you for some reason have a <code>for</code> loop with no content, put in the <code>pass</code> statement to avoid getting an error.
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+for x in [0, 1, 2]:
+  pass
+        ]]>
+      </code>
+    </concept>
+  </topic>
+</data>
