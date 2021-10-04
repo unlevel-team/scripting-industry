@@ -1,7 +1,7 @@
 {
   "version": "0.0.1",
   "contexts": ["bash", "javascript", "python"],
-  "topics": ["variables", "objects-and-arrays", "conditions-and-cases", "loops"],
+  "topics": ["variables", "objects-and-arrays", "conditions-and-cases", "loops", "functions"],
   "contexts-config": {
     "bash": {
       "topics": {
@@ -16,6 +16,9 @@
         },
         "loops": {
           "data-file": "bash/loops.xml"
+        },
+        "functions": {
+          "data-file": "bash/functions.xml"
         }
       }
     },
@@ -32,6 +35,9 @@
         },
         "loops": {
           "data-file": "javascript/loops.xml"
+        },
+        "functions": {
+          "data-file": "javascript/functions.xml"
         }
       }
     },
@@ -48,6 +54,9 @@
         },
         "loops": {
           "data-file": "python/loops.xml"
+        },
+        "functions": {
+          "data-file": "python/functions.xml"
         }
       }
     }
@@ -59,7 +68,8 @@
       "variables": { "url": "/variables" },
       "objects-and-arrays": { "url": "/objects-and-arrays" },
       "conditions-and-cases": { "url": "/conditions-and-cases" },
-      "loops": { "url": "/loops" }
+      "loops": { "url": "/loops" },
+      "functions": { "url": "/functions" }
     }
   },
   "sidebar": {
@@ -67,7 +77,8 @@
       "variables": { "text": "Variables", "url": "./variables" },
       "objects-and-arrays": { "text": "Objects and arrays", "url": "./objects-and-arrays" },
       "conditions-and-cases": { "text": "Conditions and cases", "url": "./conditions-and-cases" },
-      "loops": { "text": "Loops", "url": "./loops" }
+      "loops": { "text": "Loops", "url": "./loops" },
+      "functions": { "text": "Functions", "url": "./functions" }
     }
   },
   "context-picker": {
