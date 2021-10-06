@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="classes">
+    <title value="Classes on javascript" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+Classes on javascript
+      ]]>
+    </description>
+    <concept name="classes">
+      <title value="Classes" />
+      <docLink value="https://www.w3schools.com/js/js_class_intro.asp" />
+      <description>
+        <![CDATA[
+ECMAScript 2015, also known as ES6, introduced JavaScript Classes.<br>
+JavaScript Classes are <strong>templates for JavaScript Objects</strong>.<br>
+Use the keyword <code>class</code> to create a class.<br>
+Always add a method named <code>constructor()</code><br>
+<pre>
+class ClassName {
+  constructor() { ... }
+  method_1() { ... }
+  method_2() { ... }
+  method_3() { ... }
+}
+</pre>
+The constructor method is a special method:<br>
+<ul>
+  <li>It has to have the exact name <strong>"constructor"</strong></li>
+  <li>It is <strong>executed automatically</strong> when a new object is created</li>
+  <li>It is used to <strong>initialize object properties</strong></li>
+</ul>
+If you do not define a constructor method, JavaScript will add an <strong>empty constructor method</strong>.<br>
+The syntax in classes must be written in <strong>"strict mode"</strong>.<br>
+You will get an error if you do not follow the "strict mode" rules.<br>
+Unlike functions, and other JavaScript declarations, <strong>class declarations are not hoisted</strong>.<br>
+That means that <strong>you must declare a class before you can use it</strong>
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+  age() {
+    // date = new Date();  // This will not work
+    let date = new Date(); // This will work
+    return date.getFullYear() - this.year;
+  }
+}
+        ]]>
+      </code>
+      <code language="javascript">
+        <![CDATA[
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+  age(x) {
+    return x - this.year;
+  }
+}
+
+let date = new Date();
+let year = date.getFullYear();
+
+let myCar = new Car("Ford", 2014);
+document.getElementById("demo").innerHTML=
+"My car is " + myCar.age(year) + " years old.";
+        ]]>
+      </code>
+    </concept>
+    <concept name="class-inheritance">
+      <title value="Class Inheritance" />
+      <docLink value="https://www.w3schools.com/js/js_class_inheritance.asp" />
+      <description>
+        <![CDATA[
+To create a class inheritance, use the <code>extends</code> keyword.<br>
+A class created with a class inheritance <strong>inherits all the methods</strong> from another class.<br>
+The <code>super()</code> method refers to the parent class.<br>
+By calling the <code>super()</code> method in the constructor method, we call the parent's constructor method and gets access to the parent's properties and methods.<br>
+Inheritance is useful for code reusability: reuse properties and methods of an existing class when you create a new class.<br>
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+  present() {
+    return 'I have a ' + this.carname;
+  }
+}
+
+class Model extends Car {
+  constructor(brand, mod) {
+    super(brand);
+    this.model = mod;
+  }
+  show() {
+    return this.present() + ', it is a ' + this.model;
+  }
+}
+
+let myCar = new Model("Ford", "Mustang");
+document.getElementById("demo").innerHTML = myCar.show();
+        ]]>
+      </code>
+    </concept>
+    <concept name="getters-and-setters">
+      <title value="Getters and Setters" />
+      <docLink value="https://www.w3schools.com/js/js_class_inheritance.asp" />
+      <description>
+        <![CDATA[
+Classes also allows you to use getters and setters.<br>
+It can be smart to use getters and setters for your properties, especially if you want to do something special with the value before returning them, or before you set them.<br>
+To add getters and setters in the class, use the <code>get</code> and <code>set</code> keywords.<br>
+The name of the getter/setter method cannot be the same as the name of the property.<br>
+Many programmers use an underscore character <code>_</code> before the property name to separate the getter/setter from the actual property.
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+class Car {
+  constructor(brand) {
+    this._carname = brand;
+  }
+  get carname() {
+    return this._carname;
+  }
+  set carname(x) {
+    this._carname = x;
+  }
+}
+
+let myCar = new Car("Ford");
+myCar.carname = "Volvo";
+document.getElementById("demo").innerHTML = myCar.carname;
+        ]]>
+      </code>
+    </concept>
+    <concept name="static-methods">
+      <title value="Static Methods" />
+      <docLink value="https://www.w3schools.com/js/js_class_static.asp" />
+      <description>
+        <![CDATA[
+Static class methods are defined on the class itself.<br>
+You cannot call a <code>static</code> method on an object, only on an object class.
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+class Car {
+  constructor(name) {
+    this.name = name;
+  }
+  static hello(x) {
+    return "Hello " + x.name;
+  }
+}
+let myCar = new Car("Ford");
+// You can calll 'hello()' on the Car Class:
+document.getElementById("demo").innerHTML = Car.hello(myCar);
+
+// But NOT on a Car Object:
+// document.getElementById("demo").innerHTML = myCar.hello();
+// this will raise an error.
+        ]]>
+      </code>
+    </concept>
+  </topic>
+</data>
