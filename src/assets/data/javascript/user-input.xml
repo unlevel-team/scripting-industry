@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="user-input">
+    <title value="User input on javascript" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+User input on javascript
+      ]]>
+    </description>
+    <concept name="window-prompt">
+      <title value="Window prompt() Method" />
+      <docLink value="https://www.w3schools.com/jsref/met_win_prompt.asp" />
+      <description>
+        <![CDATA[
+The <code>prompt()</code> method displays a dialog box that prompts the visitor for input.<br>
+A prompt box is often used if you want the user to input a value before entering a page.<br>
+The <code>prompt()</code> method returns the input value if the user clicks "OK". If the user clicks "cancel" the method returns null.
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+var text;
+var favDrink = prompt("What's your favorite cocktail drink?");
+switch(favDrink) {
+  case "Martini":
+    text = "Excellent choice! Martini is good for your soul.";
+    break;
+  case "Daiquiri":
+    text = "Daiquiri is my favorite too!";
+    break;
+  case "Cosmopolitan":
+    text = "Really? Are you sure the Cosmopolitan is your favorite?";
+    break;
+  default:
+    text = "I have never heard of that one..";
+    break;
+}
+        ]]>
+      </code>
+    </concept>
+    <concept name="user-input-nodejs">
+      <title value="Getting User Input in Node.js" />
+      <docLink value="https://www.codecademy.com/articles/getting-user-input-in-node-js" />
+      <description>
+        <![CDATA[
+Node.js allows you to run JavaScript code outside of a browser window, offering powerful tools to interact with a computer filesystem, 
+run web servers, and create terminal applications. Node handles these tasks by running <strong>asynchronously</strong>.<br><br>
+
+Node.js provides a few ways to handle interactions, including the built-in <code>process</code> object and <code>readline</code> module. While these are powerful tools, 
+they rely on <strong>callback functions</strong> and can be confusing to work with at first.<br><br>
+
+<strong>Using prompt-sync</strong>
+The <code>prompt-sync</code> Node module provides an easy-to-use alternative to this callback-based syntax.
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+ 
+readline.question('Who are you?', name => {
+  console.log(`Hey there ${name}!`);
+  readline.close();
+});
+        ]]>
+      </code>
+      <code language="javascript">
+        <![CDATA[
+const prompt = require('prompt-sync')();
+ 
+const name = prompt('What is your name?');
+console.log(`Hey there ${name}`);
+        ]]>
+      </code>
+    </concept>
+  </topic>
+</data>
