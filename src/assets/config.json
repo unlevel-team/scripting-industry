@@ -1,7 +1,7 @@
 {
   "version": "0.0.1",
   "contexts": ["bash", "javascript", "python"],
-  "topics": ["variables", "objects-and-arrays", "conditions-and-cases", "loops", "functions", "classes"],
+  "topics": ["variables", "objects-and-arrays", "conditions-and-cases", "loops", "functions", "classes", "modules"],
   "contexts-config": {
     "bash": {
       "topics": {
@@ -41,6 +41,9 @@
         },
         "classes": {
           "data-file": "javascript/classes.xml"
+        },
+        "modules": {
+          "data-file": "javascript/modules.xml"
         }
       }
     },
@@ -63,6 +66,9 @@
         },
         "classes": {
           "data-file": "python/classes.xml"
+        },
+        "modules": {
+          "data-file": "python/modules.xml"
         }
       }
     }
@@ -76,7 +82,8 @@
       "conditions-and-cases": { "url": "/conditions-and-cases" },
       "loops": { "url": "/loops" },
       "functions": { "url": "/functions" },
-      "classes": { "url": "/classes" }
+      "classes": { "url": "/classes" },
+      "modules": { "url": "/modules" }
     }
   },
   "sidebar": {
@@ -86,7 +93,8 @@
       "conditions-and-cases": { "text": "Conditions and cases", "url": "./conditions-and-cases" },
       "loops": { "text": "Loops", "url": "./loops" },
       "functions": { "text": "Functions", "url": "./functions" },
-      "classes": { "text": "Classes", "url": "./classes" }
+      "classes": { "text": "Classes", "url": "./classes" },
+      "modules": { "text": "Modules", "url": "./modules" }
     }
   },
   "context-picker": {

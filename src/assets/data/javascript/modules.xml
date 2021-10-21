@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="modules">
+    <title value="Modules on javascript" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+Modules on javascript
+      ]]>
+    </description>
+    <concept name="modules">
+      <title value="Modules" />
+      <docLink value="https://javascript.info/modules-intro" />
+      <description>
+        <![CDATA[
+As our application grows bigger, we want to split it into multiple files, so called <strong>“modules”</strong>. A module may contain a class or a library of functions for a specific purpose.<br>
+The community invented a variety of ways to organize code into modules, special libraries to load modules on demand.
+<ul>
+  <li><strong>AMD</strong> – one of the most ancient module systems, initially implemented by the library <strong>require.js</strong>.</li>
+  <li><strong>CommonJS</strong> – the module system created for <strong>Node.js</strong> server.</li>
+  <li><strong>UMD</strong> – one more module system, suggested as a universal one, <strong>compatible with AMD and CommonJS</strong>.</li>
+</ul>
+The <strong>language-level module system appeared in the standard in 2015</strong>, gradually evolved since then, and is now supported by all major browsers and in Node.js.<br>
+Modules can load each other and use special directives <code>export</code> and <code>import</code> to interchange functionality, call functions of one module from another one:
+<ul>
+  <li><code>export</code> keyword labels variables and functions that should be accessible from outside the current module.</li>
+  <li><code>import</code> allows the import of functionality from other modules.</li>
+</ul>
+As modules support special keywords and features, we must tell the browser that a script should be treated as a module, by using the attribute <code>&lt;script type="module"&gt;</code>.<br>
+Modules always work in <strong>strict mode</strong>.<br>
+Each module has its <strong>own top-level scope</strong>. In other words, top-level variables and functions from a module are not seen in other scripts.<br>
+If the same module is imported into multiple other modules, its code is <strong>executed only once</strong>, upon the first import. 
+Then its exports are given to all further importers.<br>
+The object <code>import.meta</code> contains the information about the current module.<br>
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+// FILE: user.js
+export let user = "John";
+        ]]>
+      </code>
+      <code language="javascript">
+        <![CDATA[
+// FILE: hello.js
+import {user} from './user.js';
+
+document.body.innerHTML = user; // John
+        ]]>
+      </code>
+      <code language="html">
+        <![CDATA[
+<!-- FILE: index.html -->
+<!doctype html>
+<script type="module" src="hello.js"></script>
+        ]]>
+      </code>
+    </concept>
+    <concept name="browser-specific-features">
+      <title value="Browser-specific features" />
+      <docLink value="https://javascript.info/modules-intro" />
+      <description>
+        <![CDATA[
+There are also several browser-specific differences of scripts with <code>type="module"</code> compared to regular ones.<br><br>
+<strong>Module scripts are deferred</strong><br>
+Module scripts <strong>are always deferred</strong>, same effect as defer attribute for both external and inline scripts.
+<ul>
+  <li>downloading external module scripts <code>&lt;script type="module" src="..."&gt;</code> doesn’t block HTML processing, they load in parallel with other resources.</li>
+  <li>module scripts wait until the HTML document is fully ready (even if they are tiny and load faster than HTML), and then run.</li>
+  <li>relative order of scripts is maintained: scripts that go first in the document, execute first.</li>
+</ul>
+<strong>Async works on inline scripts</strong><br>
+For non-module scripts, the async attribute only works on external scripts. Async scripts run immediately when ready, independently of other scripts or the HTML document.<br>
+For module scripts, it works on inline scripts as well.<br>
+<strong>External scripts</strong>
+External scripts that have <code>type="module"</code> are different in two aspects:
+<ul>
+  <li>External scripts with the same <code>src</code> run only once:</li>
+  <li>External scripts that are fetched from another origin (e.g. another site) require <strong>CORS headers</strong>. That ensures better security by default.</li>
+</ul>
+<strong>No “bare” modules allowed</strong><br>
+In the browser, <code>import</code> must get either a relative or absolute URL. Modules without any path are called “bare” modules. 
+Such modules are not allowed in <code>import</code>.<br><br>
+<strong>Compatibility, “nomodule”</strong><br>
+Old browsers do not understand <code>type="module"</code>. Scripts of an unknown type are just ignored. For them, 
+it’s possible to provide a fallback using the <code>nomodule</code> attribute.
+        ]]>
+      </description>
+      <code language="html">
+        <![CDATA[
+<script type="module">
+  alert(typeof button); // object: the script can 'see' the button below
+  // as modules are deferred, the script runs after the whole page is loaded
+</script>
+
+Compare to regular script below:
+
+<script>
+  alert(typeof button); // button is undefined, the script can't see elements below
+  // regular scripts run immediately, before the rest of the page is processed
+</script>
+
+<button id="button">Button</button>
+        ]]>
+      </code>
+      <code language="html">
+        <![CDATA[
+<!-- all dependencies are fetched (analytics.js), and the script runs -->
+<!-- doesn't wait for the document or other <script> tags -->
+<script async type="module">
+  import {counter} from './analytics.js';
+
+  counter.count();
+</script>
+        ]]>
+      </code>
+      <code language="html">
+        <![CDATA[
+<script type="module">
+  alert("Runs in modern browsers");
+</script>
+
+<script nomodule>
+  alert("Modern browsers know both type=module and nomodule, so skip this")
+  alert("Old browsers ignore script with unknown type=module, but execute this.");
+</script>
+        ]]>
+      </code>
+    </concept>
+  </topic>
+</data>
