@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="loops">
+    <title value="Loops on javascript" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+        The loops on javascript
+      ]]>
+    </description>
+    <concept name="javascript-loops">
+      <title value="JavaScript Loops" />
+      <docLink value="https://www.w3schools.com/js/js_loop_for.asp" />
+      <description>
+        <![CDATA[
+Loops are handy, if you want to run the same code over and over again, each time with a different value.
+Often this is the case when working with arrays.<br>
+JavaScript supports different kinds of loops:
+<ul>
+  <li><code>for</code> - loops through a block of code a number of times</li>
+  <li><code>for/in</code> - loops through the properties of an object</li>
+  <li><code>for/of</code> - loops through the values of an iterable object</li>
+  <li><code>while</code> - loops through a block of code while a specified condition is true</li>
+  <li><code>do/while</code> - also loops through a block of code while a specified condition is true</li>
+</ul>
+        ]]>
+      </description>
+    </concept>
+    <concept name="for-loop">
+      <title value="The For Loop" />
+      <docLink value="https://www.w3schools.com/js/js_loop_for.asp" />
+      <description>
+        <![CDATA[
+The <code>for</code> loop has the following syntax:<br>
+<pre>
+for (statement 1; statement 2; statement 3) {
+  // code block to be executed
+}
+</pre>
+
+<strong>Statement</strong> 1 is executed (one time) before the execution of the code block.<br>
+<strong>Statement</strong> 2 defines the condition for executing the code block.<br>
+<strong>Statement</strong> 3 is executed (every time) after the code block has been executed.<br>
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+for (let i = 0; i < 5; i++) {
+  text += "The number is " + i + "<br>";
+}
+        ]]>
+      </code>
+      <code language="javascript">
+        <![CDATA[
+// Loop Scope - Using var in a loop
+
+var i = 5;
+for (var i = 0; i < 10; i++) {
+  // some code
+}
+// Here i is 10
+        ]]>
+      </code>
+      <code language="javascript">
+        <![CDATA[
+// Loop Scope - Using let in a loop
+
+let i = 5;
+for (let i = 0; i < 10; i++) {
+  // some code
+}
+// Here i is 5
+        ]]>
+      </code>
+    </concept>
+    <concept name="for-in-loop">
+      <title value="The For In Loop" />
+      <docLink value="https://www.w3schools.com/js/js_loop_forin.asp" />
+      <description>
+        <![CDATA[
+The JavaScript <code>for in</code> statement loops through the properties of an Object
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+const person = {fname:"John", lname:"Doe", age:25};
+
+let text = "";
+for (let x in person) {
+  text += person[x];
+}
+
+
+// For In Over Arrays
+const numbers = [45, 4, 9, 16, 25];
+
+let txt = "";
+for (let x in numbers) {
+  txt += numbers[x];
+}
+        ]]>
+      </code>
+    </concept>
+    <concept name="for-of-loop">
+      <title value="The For Of Loop" />
+      <docLink value="https://www.w3schools.com/js/js_loop_forof.asp" />
+      <description>
+        <![CDATA[
+The JavaScript <code>for of</code> statement loops through the values of an iterable object. <br>
+It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists, and more. <br>
+<pre>
+for (variable of iterable) {
+  // code block to be executed
+}
+</pre>
+
+<strong>variable</strong> - For every iteration the value of the next property is assigned to the variable. Variable can be declared with <code>const</code>, <code>let</code>, or <code>var</code>.<br>
+<strong>iterable<strong> - An object that has iterable properties.
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+// Looping over an Array
+const cars = ["BMW", "Volvo", "Mini"];
+
+let text = "";
+for (let x of cars) {
+  text += x;
+}
+
+// Looping over a String
+let language = "JavaScript";
+
+let text = "";
+for (let x of language) {
+text += x;
+}
+        ]]>
+      </code>
+    </concept>
+    <concept name="while-loop">
+      <title value="While Loop" />
+      <docLink value="https://www.w3schools.com/js/js_loop_while.asp" />
+      <description>
+        <![CDATA[
+The <code>while</code> loop loops through a block of code as long as a specified condition is true. <br>
+<pre>
+while (condition) {
+  // code block to be executed
+}
+</pre><br>
+
+The <code>do while</code> loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it will 
+repeat the loop as long as the condition is true. <br>
+<pre>
+do {
+  // code block to be executed
+}
+while (condition);
+</pre>
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+while (i < 10) {
+  text += "The number is " + i;
+  i++;
+}
+
+do {
+  text += "The number is " + i;
+  i++;
+}
+while (i < 10);
+        ]]>
+      </code>
+    </concept>
+    <concept name="break">
+      <title value="The Break Statement" />
+      <docLink value="https://www.w3schools.com/js/js_break.asp" />
+      <description>
+        <![CDATA[
+The <code>break</code> statement can be used to jump out of a loop or a <code>switch()</code> statement.
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+for (let i = 0; i < 10; i++) {
+  if (i === 3) { break; }
+  text += "The number is " + i + "<br>";
+}
+        ]]>
+      </code>
+    </concept>
+    <concept name="continue">
+      <title value="The Continue Statement" />
+      <docLink value="https://www.w3schools.com/js/js_break.asp" />
+      <description>
+        <![CDATA[
+The <code>continue</code> statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+for (let i = 0; i < 10; i++) {
+  if (i === 3) { continue; }
+  text += "The number is " + i + "<br>";
+}
+        ]]>
+      </code>
+    </concept>
+    <concept name="labels">
+      <title value="JavaScript Labels" />
+      <docLink value="https://www.w3schools.com/js/js_break.asp" />
+      <description>
+        <![CDATA[
+To label JavaScript statements you precede the statements with a label name and a colon <br>
+<pre>
+label:
+statements
+</pre>
+
+<pre>
+break labelname;
+
+continue labelname;
+</pre>
+
+The <code>continue</code> statement (with or without a label reference) can only be used to <strong>skip one loop iteration</strong>. <br>
+The <code>break</code> statement, without a label reference, can only be used to <strong>jump out of a loop or a switch</strong>. <br>
+With a label reference, the break statement can be used to <strong>jump out of any code block</strong>
+        ]]>
+      </description>
+    </concept>
+  </topic>
+</data>

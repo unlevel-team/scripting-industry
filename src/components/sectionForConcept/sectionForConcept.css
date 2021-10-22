@@ -61,6 +61,16 @@ section.concept .description {
   padding-bottom: 0.3em;
 }
 
+section.concept .description pre {
+  border-style: solid;
+  border-width: 0.1em;
+  border-color: var(--color-primary-detail-3);
+  border-radius: 0.73em;
+  padding: 0.3em;
+  background-color: var(--color-secondary-1-background);
+  color: var(--color-primary-detail-2);
+}
+
 section.concept .description code {
   padding-left: 0.3em;
   padding-right: 0.3em;

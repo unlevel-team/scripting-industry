@@ -1,7 +1,8 @@
 {
   "version": "0.0.1",
   "contexts": ["bash", "javascript", "python"],
-  "topics": ["variables", "objects-and-arrays"],
+  "topics": ["variables", "objects-and-arrays", "conditions-and-cases", "loops", "functions", "classes", 
+    "modules", "user-input", "user-output"],
   "contexts-config": {
     "bash": {
       "topics": {
@@ -10,6 +11,21 @@
         },
         "objects-and-arrays": {
           "data-file": "bash/objects-and-arrays.xml"
+        },
+        "conditions-and-cases": {
+          "data-file": "bash/conditions-and-cases.xml"
+        },
+        "loops": {
+          "data-file": "bash/loops.xml"
+        },
+        "functions": {
+          "data-file": "bash/functions.xml"
+        },
+        "user-input": {
+          "data-file": "bash/user-input.xml"
+        },
+        "user-output": {
+          "data-file": "bash/user-output.xml"
         }
       }
     },
@@ -20,6 +36,27 @@
         },
         "objects-and-arrays": {
           "data-file": "javascript/objects-and-arrays.xml"
+        },
+        "conditions-and-cases": {
+          "data-file": "javascript/conditions-and-cases.xml"
+        },
+        "loops": {
+          "data-file": "javascript/loops.xml"
+        },
+        "functions": {
+          "data-file": "javascript/functions.xml"
+        },
+        "classes": {
+          "data-file": "javascript/classes.xml"
+        },
+        "modules": {
+          "data-file": "javascript/modules.xml"
+        },
+        "user-input": {
+          "data-file": "javascript/user-input.xml"
+        },
+        "user-output": {
+          "data-file": "javascript/user-output.xml"
         }
       }
     },
@@ -30,6 +67,27 @@
         },
         "objects-and-arrays": {
           "data-file": "python/objects-and-arrays.xml"
+        },
+        "conditions-and-cases": {
+          "data-file": "python/conditions-and-cases.xml"
+        },
+        "loops": {
+          "data-file": "python/loops.xml"
+        },
+        "functions": {
+          "data-file": "python/functions.xml"
+        },
+        "classes": {
+          "data-file": "python/classes.xml"
+        },
+        "modules": {
+          "data-file": "python/modules.xml"
+        },
+        "user-input": {
+          "data-file": "python/user-input.xml"
+        },
+        "user-output": {
+          "data-file": "python/user-output.xml"
         }
       }
     }
@@ -39,13 +97,27 @@
     "default": "/variables",
     "routes": {
       "variables": { "url": "/variables" },
-      "objects-and-arrays": { "url": "/objects-and-arrays" }
+      "objects-and-arrays": { "url": "/objects-and-arrays" },
+      "conditions-and-cases": { "url": "/conditions-and-cases" },
+      "loops": { "url": "/loops" },
+      "functions": { "url": "/functions" },
+      "classes": { "url": "/classes" },
+      "modules": { "url": "/modules" },
+      "user-input": { "url": "/user-input" },
+      "user-output": { "url": "/user-output" }
     }
   },
   "sidebar": {
     "links": {
       "variables": { "text": "Variables", "url": "./variables" },
-      "objects-and-arrays": { "text": "Objects and arrays", "url": "./objects-and-arrays" }
+      "objects-and-arrays": { "text": "Objects and arrays", "url": "./objects-and-arrays" },
+      "conditions-and-cases": { "text": "Conditions and cases", "url": "./conditions-and-cases" },
+      "loops": { "text": "Loops", "url": "./loops" },
+      "functions": { "text": "Functions", "url": "./functions" },
+      "classes": { "text": "Classes", "url": "./classes" },
+      "modules": { "text": "Modules", "url": "./modules" },
+      "user-input": { "text": "User input", "url": "./user-input" },
+      "user-output": { "text": "User output", "url": "./user-output" }
     }
   },
   "context-picker": {

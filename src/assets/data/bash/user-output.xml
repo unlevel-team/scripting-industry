@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="user-output">
+    <title value="User output on bash" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+User output on bash
+      ]]>
+    </description>
+    <concept name="echo">
+      <title value="Echo" />
+      <docLink value="https://linuxhint.com/bash_echo/" />
+      <description>
+        <![CDATA[
+Multiple built-in functions exist in bash to print the output into the terminal. ‘echo’ is one of the most used commands to print text or string data into the terminal or 
+another command as input or a file. This command has some options that can be used with this command for special purposes.<br><br>
+<pre>echo [ OPTION(S) ] [ STRING ]</pre>
+Options:
+<ul>
+  <li><strong>-n</strong>	Omit newline from the output.</li>
+  <li><strong>-e</strong>	Enable the function of backslash(/) character.</li>
+  <li><strong>-E</strong>	Disable the function of backslash(/) character.</li>
+  <li><strong>–version</strong>	Display the version information.</li>
+  <li><strong>–help</strong>	Display help messages related to the uses of this command</li>
+</ul>
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+$ echo "Learn bash programming"
+$ echo -n "Python is an interpreted high-level programming language"
+$ echo -e "Perl\tis\ta\tpowerful\tand\tportable\tlanguage"
+$ echo -E "I\nlike\nbash\programming"
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+$ price="\$100"
+$ echo 'The price of this book is $price'
+$ echo "The price of this book is $price"
+        ]]>
+      </code>
+    </concept>
+  </topic>
+</data>
