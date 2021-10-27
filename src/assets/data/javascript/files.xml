@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="files">
+    <title value="Files on javascript" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+Files on javascript
+      ]]>
+    </description>
+    <concept name="file-api">
+      <title value="Using the File API" />
+      <docLink value="https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications" />
+      <description>
+        <![CDATA[
+Using the File API, which was added to the DOM in HTML5, it's now possible for web content to ask the user to select local files and then 
+read the contents of those files. This selection can be done by either using an HTML <code>&lt;input type="file"&gt;</code> element or by drag and drop.<br><br>
+
+<strong>Accessing selected file(s)</strong><br>
+The File API makes it possible to access a <code>FileList</code> containing <code>File</code> objects representing the files selected by the user.<br>
+The <code>multiple</code> attribute on the <code>input</code> element allows the user to select multiple files.<br>
+<pre>&lt;input type="file" id="input" multiple&gt;</pre>
+Accessing the first selected file using a classical DOM selector:
+<pre>const selectedFile = document.getElementById('input').files[0];</pre><br>
+
+<strong>Getting information about selected file(s)</strong><br>
+The <code>FileList</code> object provided by the DOM lists all of the files selected by the user, each specified as a <code>File</code> object. 
+You can determine how many files the user selected by checking the value of the file list's length attribute:
+<pre>const numFiles = fileList.length;</pre>
+Individual <code>File</code> objects can be retrieved by accessing the list as an array:
+<pre>
+for (let i = 0, numFiles = fileList.length; i < numFiles; i++) {
+  const file = fileList[i];
+  // ...
+}
+</pre>
+There are three attributes provided by the <code>File</code> object that contain useful information about the file.
+<ul>
+  <li><strong>name</strong> The file's name as a read-only string. This is just the file name, and does not include any path information.</li>
+  <li><strong>size</strong> The size of the file in bytes as a read-only 64-bit integer.</li>
+  <li><strong>type</strong> The MIME type of the file as a read-only string or "" if the type couldn't be determined.</li>
+</ul>
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+// Accessing selected file(s) on a change event
+
+const inputElement = document.getElementById("input");
+inputElement.addEventListener("change", handleFiles, false);
+function handleFiles() {
+  const fileList = this.files; /* now you can work with the file list */
+}
+        ]]>
+      </code>
+    </concept>
+    <concept name="read-text-file">
+      <title value="How to read a local text file using JavaScript?" />
+      <docLink value="https://www.geeksforgeeks.org/how-to-read-a-local-text-file-using-javascript/" />
+      <description>
+        <![CDATA[
+HTML 5 provides a standard way to interact with local files with the help of <code>File API</code>. The File API allows interaction with single, 
+multiple as well as <code>BLOB</code> files. The <code>FileReader API</code> can be used to read a file asynchronously in collaboration with JavaScript event handling. 
+There are four inbuilt methods in the FileReader API to read local files:
+<ul>
+  <li><strong>FileReader.readAsArrayBuffer():</strong> Reads the contents of the specified input file. The result attribute contains an <code>ArrayBuffer</code> representing the file’s data.</li>
+  <li><strong>FileReader.readAsBinaryString():</strong> Reads the contents of the specified input file. The result attribute contains the raw binary data from the file as a string.</li>
+  <li><strong>FileReader.readAsDataURL():</strong> Reads the contents of the specified input file. The result attribute contains a URL representing the file’s data.</li>
+  <li><strong>FileReader.readAsText():</strong> Reads the contents of the specified input file. The result attribute contains the contents of 
+  the file as a text string. This method can take encoding version as the second argument(if required). The default encoding is UTF-8.</li>
+</ul>
+        ]]>
+      </description>
+      <code language="html">
+        <![CDATA[
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Read Text File</title>
+</head>
+
+<body>
+	<input type="file" name="inputfile"
+			id="inputfile">
+	<br>
+
+	<pre id="output"></pre>
+	
+	<script type="text/javascript">
+		document.getElementById('inputfile')
+			.addEventListener('change', function() {
+			
+			var fr=new FileReader();
+			fr.onload=function(){
+				document.getElementById('output')
+						.textContent=fr.result;
+			}
+			
+			fr.readAsText(this.files[0]);
+		})
+	</script>
+</body>
+
+</html>
+        ]]>
+      </code>
+    </concept>
+    <concept name="save-text-file">
+      <title value="Saving text to a client-side file" />
+      <docLink value="https://robkendal.co.uk/blog/2020-04-17-saving-text-to-client-side-file-using-vanilla-js" />
+      <description>
+        <![CDATA[
+Using the <strong>HTML canvas blob</strong>.<br>
+What we've got going on here, is a plain, browser-native querySelector call that grabs our button with the id <code>btnSave</code>, attaches an event listener 
+that fires on click — nothing too fancy here.<br><br>
+Where the magic (well, really simple magic) is in the 'downloadToFile' method above. We create a new anchor element and a new <code>Blob object</code> using the 
+content and contentType arguments we passed in.<br><br>
+Next, we set the <code>href</code> element to the result of the <code>URL.createObjectURL()</code> method that creates a DOMString containing a URL that represents the file 
+object we just made.<br><br>
+Finally, we trigger our new anchor element's click event, which kicks off the download process in the browser, before cleaning things up 
+using the <code>URL.revokeObjectURL()</code> method.
+        ]]>
+      </description>
+      <code language="html">
+        <![CDATA[
+<fieldset>
+  <legend>Enter some config details</legend>
+  <textarea></textarea>
+  <button id="btnSave">save config</button>
+</fieldset>
+        ]]>
+      </code>
+      <code language="javascript">
+        <![CDATA[
+const downloadToFile = (content, filename, contentType) => {
+  const a = document.createElement('a');
+  const file = new Blob([content], {type: contentType});
+  
+  a.href= URL.createObjectURL(file);
+  a.download = filename;
+  a.click();
+
+	URL.revokeObjectURL(a.href);
+};
+
+document.querySelector('#btnSave').addEventListener('click', () => {
+  const textArea = document.querySelector('textarea');
+  
+  downloadToFile(textArea.value, 'my-new-file.txt', 'text/plain');
+});
+        ]]>
+      </code>
+    </concept>
+    <concept name="read-write-json-nodejs">
+      <title value="Read/Write JSON Files with Node.js" />
+      <docLink value="https://medium.com/@osiolabs/read-write-json-files-with-node-js-92d03cc82824" />
+      <description>
+        <![CDATA[
+<strong>Work with files with fs</strong><br>
+Accessing files in Node is done with the <strong>native module fs</strong>, which gives you functions to watch, read, and write files along with many other tools to 
+work with the filesystem. Because it’s a native module, we can require it in our code without installing it. Just call <code>const fs = require(‘fs’)</code>.<br><br>
+
+The fs module gives us the option of synchronous or asynchronous versions of many of its functions. The synchronous versions block execution of 
+other code until they are done accessing the filesystem, reading, or writing data. An async function will run without blocking other code.<br><br>
+
+<strong>Reading a JSON file with fs.readFile</strong><br>
+To access the data of a JSON file, we need to:
+<ul>
+  <li>read the JSON data from the file</li>
+  <li>parse the JSON string into a JavaScript object</li>
+</ul>
+We can also read the file <strong>synchronously</strong> using <code>fs.readFileSync</code>. Instead of taking a callback, 
+<code>readFileSync</code> returns the file content after reading the file.<br><br>
+
+<strong>Writing to a file with fs.writeFile</strong><br>
+We will use <code>fs.writeFile</code> to asynchronously write data to a file.<br><br>
+First, to write data to a JSON file, we must create a JSON string of the data with <code>JSON.stringify</code>. This returns a JSON string representation of a 
+JavaScript object, which can be written to a file. Similar to parsing data into an object when reading a file, we must turn our data into a 
+string to be able to write it to a file.<br><br>
+
+We can also write a file <strong>synchronously</strong> in the same way using <code>fs.writeFileSync</code><br><br>
+
+Stringifying by default puts your data all on a single line. Optionally, you can make the output file human-readable by passing the number of 
+spaces to indent by to <strong>JSON.stringify</strong>
+<pre>const jsonString = JSON.stringify(customer, null, 2)</pre>
+        ]]>
+      </description>
+      <code language="javascript">
+        <![CDATA[
+// Read JSON asynchronous
+const fs = require('fs')
+fs.readFile('./customer.json', 'utf8', (err, jsonString) => {
+    if (err) {
+        console.log("Error reading file from disk:", err)
+        return
+    }
+    try {
+        const customer = JSON.parse(jsonString)
+        console.log("Customer address is:", customer.address) // => "Customer address is: Infinity Loop Drive"
+} catch(err) {
+        console.log('Error parsing JSON string:', err)
+    }
+})
+        ]]>
+      </code>
+      <code language="javascript">
+        <![CDATA[
+// Read JSON synchronous
+try {
+  const jsonString = fs.readFileSync('./customer.json')
+  const customer = JSON.parse(jsonString)
+} catch(err) {
+  console.log(err)
+  return
+}
+        ]]>
+      </code>
+      <code language="javascript">
+        <![CDATA[
+// Write JSON asynchronous
+const fs = require('fs')
+const customer = {
+    name: "Newbie Co.",
+    order_count: 0,
+    address: "Po Box City",
+}
+const jsonString = JSON.stringify(customer)
+fs.writeFile('./newCustomer.json', jsonString, err => {
+    if (err) {
+        console.log('Error writing file', err)
+    } else {
+        console.log('Successfully wrote file')
+    }
+})
+        ]]>
+      </code>
+      <code language="javascript">
+        <![CDATA[
+// Write JSON synchronous
+const fs = require('fs')
+const customer = {
+    name: "Newbie Co.",
+    order_count: 0,
+    address: "Po Box City",
+}
+const jsonString = JSON.stringify(customer)
+fs.writeFileSync('./newCustomer.json', jsonString)
+        ]]>
+      </code>
+    </concept>
+
+
+  </topic>
+</data>

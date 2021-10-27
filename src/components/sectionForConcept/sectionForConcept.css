@@ -71,6 +71,11 @@ section.concept .description pre {
   color: var(--color-primary-detail-2);
 }
 
+section.concept .description strong {
+  color: var(--color-primary-detail-3);
+  font-size: 1.1em;
+}
+
 section.concept .description code {
   padding-left: 0.3em;
   padding-right: 0.3em;
