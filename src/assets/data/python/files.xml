@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="files">
+    <title value="Files on python" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+Files on python
+      ]]>
+    </description>
+    <concept name="file-handling">
+      <title value="File Handling" />
+      <docLink value="https://www.w3schools.com/python/python_file_handling.asp" />
+      <description>
+        <![CDATA[
+The key function for working with files in Python is the <code>open()</code> function.<br>
+The <code>open()</code> function takes two parameters; <code>filename</code>, and <code>mode</code>.<br>
+There are four different methods (modes) for opening a file:
+<ul>
+  <li><strong>"r"</strong> - Read - Default value. Opens a file for reading, error if the file does not exist</li>
+  <li><strong>"a"</strong> - Append - Opens a file for appending, creates the file if it does not exist</li>
+  <li><strong>"w"</strong> - Write - Opens a file for writing, creates the file if it does not exist</li>
+  <li><strong>"x"</strong> - Create - Creates the specified file, returns an error if the file exists</li>
+</ul>
+In addition you can specify if the file should be handled as binary or text mode
+<ul>
+  <li><strong>"t"</strong> - Text - Default value. Text mode</li>
+  <li><strong>"b"</strong> - Binary - Binary mode (e.g. images)</li>
+</ul>
+To open a file for reading it is enough to specify the name of the file:
+<pre>f = open("demofile.txt")</pre>
+The code above is the same as:
+<pre>f = open("demofile.txt", "rt")</pre>
+        ]]>
+      </description>
+    </concept>
+  </topic>
+</data>

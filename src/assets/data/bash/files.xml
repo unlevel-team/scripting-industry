@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="files">
+    <title value="Files on bash" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+Files on bash
+      ]]>
+    </description>
+    <concept name="read-from-command-line">
+      <title value="Reading file content from command line" />
+      <docLink value="https://linuxhint.com/read_file_line_by_line_bash/" />
+      <description>
+        <![CDATA[
+Suppose, you want to read the file, <code>company.txt</code>, line by line from the command line without <code>‘cat’</code> command. Run the following command to do the task. 
+<code>while</code> loop will read each line from the file <code>company.txt</code> in each step and store the content of the line in <code>$line</code> variable which will be printed later.
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+$ while read line; do echo $line; done < company.txt
+        ]]>
+      </code>
+    </concept>
+    <concept name="read-using-script">
+      <title value="Reading file content using script" />
+      <docLink value="https://linuxhint.com/read_file_line_by_line_bash/" />
+      <description>
+        <![CDATA[
+Create a bash file and add the following code to read the content of a particular file. Here, an existing filename is stored in <code>$filename</code> variable and <code>$n</code> variable 
+is used to keep the value of the line number of that file. The <code>while</code> loop is used to read this file with line number.
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+#!/bin/bash
+filename='company.txt'
+n=1
+while read line; do
+# reading each line
+echo "Line No. $n : $line"
+n=$((n+1))
+done < $filename
+        ]]>
+      </code>
+    </concept>
+    <concept name="pass-filename-from-command-line-read">
+      <title value="Passing filename from the command line and reading the file" />
+      <docLink value="https://linuxhint.com/read_file_line_by_line_bash/" />
+      <description>
+        <![CDATA[
+This script will take the filename from the command line argument. First argument value is read by the variable <code>$1</code> which will contain the filename for reading. 
+If the file exists in the current location then <code>while</code> loop will read the file line by line like previous example and print the file content.
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+#!/bin/bash
+filename=$1
+while read line; do
+# reading each line
+echo $line
+done < $filename
+        ]]>
+      </code>
+    </concept>
+    <concept name="writing-redirection-operators">
+      <title value="Writing to a File using Redirection Operators" />
+      <docLink value="https://linuxize.com/post/bash-write-to-file/" />
+      <description>
+        <![CDATA[
+In Bash, the redirection of output allows you to capture the output from a command and write it to a file.<br>
+The general format for redirecting and writing output to a file is as follows:
+<pre>
+output &gt; filename 
+output &gt;&gt; filename 
+</pre>
+<ul>
+  <li>The <code>&gt;</code> redirection operator writes the output to a given file. If the file exists, it is truncated to zero length. Otherwise, the file is created. 
+  Be extra careful when using this operator as you may overwrite an important file.</li>
+  <li>The <code>&gt;&gt;</code> redirection operator appends the output to a given file. The file is created if it does not exist.</li>
+</ul>
+You need to have write permissions to the file. Otherwise, you will receive a permission denied error.
+        ]]>
+      </description>
+    </concept>
+    <concept name="writing-using-tee-command">
+      <title value="Writing to a File using the tee Command" />
+      <docLink value="https://linuxize.com/post/bash-write-to-file/" />
+      <description>
+        <![CDATA[
+The <code>tee</code> command reads from the standard input and writes to both standard output and one or more files simultaneously.
+<pre>
+echo "this is a line" | tee file.txt
+</pre>
+The <code>tee</code> command’s default behavior is to overwrite the specified file, same as the <code>&gt;</code> operator. To append the output to the file, 
+invoke the command with the <code>-a</code> (<code>--append</code>) option:
+<pre>
+echo "this is a line" | tee -a file.txt
+</pre>
+If you don’t want the <code>tee</code> to write to the standard output, you can redirect it to <code>/dev/null</code>:
+<pre>
+echo "this is a line" | tee file.txt >/dev/null
+</pre>
+To write the text to more than one file, specify the files as arguments to the <code>tee</code> command:
+<pre>
+echo "this is a line" | tee file_1.txt file_2.txt file_3.txt
+</pre>
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+#!/bin/sh
+
+TZ=UTC
+date > date.txt
+        ]]>
+      </code>
+    </concept>
+  </topic>
+</data>

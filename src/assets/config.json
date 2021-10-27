@@ -2,7 +2,7 @@
   "version": "0.0.1",
   "contexts": ["bash", "javascript", "python"],
   "topics": ["variables", "objects-and-arrays", "conditions-and-cases", "loops", "functions", "classes", 
-    "modules", "user-input", "user-output"],
+    "modules", "user-input", "user-output", "files"],
   "contexts-config": {
     "bash": {
       "topics": {
@@ -26,6 +26,9 @@
         },
         "user-output": {
           "data-file": "bash/user-output.xml"
+        },
+        "files": {
+          "data-file": "bash/files.xml"
         }
       }
     },
@@ -57,6 +60,9 @@
         },
         "user-output": {
           "data-file": "javascript/user-output.xml"
+        },
+        "files": {
+          "data-file": "javascript/files.xml"
         }
       }
     },
@@ -88,6 +94,9 @@
         },
         "user-output": {
           "data-file": "python/user-output.xml"
+        },
+        "files": {
+          "data-file": "python/files.xml"
         }
       }
     }
@@ -104,7 +113,8 @@
       "classes": { "url": "/classes" },
       "modules": { "url": "/modules" },
       "user-input": { "url": "/user-input" },
-      "user-output": { "url": "/user-output" }
+      "user-output": { "url": "/user-output" },
+      "files": { "url": "/files" }
     }
   },
   "sidebar": {
@@ -117,7 +127,8 @@
       "classes": { "text": "Classes", "url": "./classes" },
       "modules": { "text": "Modules", "url": "./modules" },
       "user-input": { "text": "User input", "url": "./user-input" },
-      "user-output": { "text": "User output", "url": "./user-output" }
+      "user-output": { "text": "User output", "url": "./user-output" },
+      "files": { "text": "Files", "url": "./files" }
     }
   },
   "context-picker": {

@@ -50,11 +50,11 @@ const _HEADER = {
       <div class="modal-content">
         <div class="modal-header">
           <span class="close">&times;</span>
-          <h2>About Frontend industry</h2>
+          <h2>About Scripting industry</h2>
         </div>
         <div class="modal-body">
-          <p>Is a memo pad for develop frontend applications</p>
-          <p>Separates the main topics for frontend development and offers concepts for W3C compatible code and frameworks</p>
+          <p>Is a memo pad for develop using scripting languages</p>
+          <p>Separates the main topics for scripting and offers techniques for Bash, javascript and python</p>
           <!--
           <p>
             <button type="button" @click="${() => _ENV.modalInfo.close()}">Close</button>
@@ -78,11 +78,11 @@ const _HEADER = {
       <div class="modal-content">
         <div class="modal-header">
           <span class="close">&times;</span>
-          <h2>Code of Frontend industry</h2>
+          <h2>Code of Scripting industry</h2>
         </div>
         <div class="modal-body">
           <p>This project is open source</p>
-          <p>You can find the code in <a href="https://github.com/unlevel-team/frontend-industry" target="_blank">this repository</a></p>
+          <p>You can find the code in <a href="https://github.com/unlevel-team/scripting-industry" target="_blank">this repository</a></p>
           <!--
           <p>
             <button type="button" @click="${() => _ENV.modalInfo.close()}">Close</button>
