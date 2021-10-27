@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="objects-and-arrays">
+    <title value="Objects and arrays on bash" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+        Objects and arrays on bash
+      ]]>
+    </description>
+    <concept name="create-an-array">
+      <title value="Create an array" />
+      <docLink value="https://linuxconfig.org/how-to-use-arrays-in-bash-script" />
+      <description>
+        <![CDATA[
+The first thing to do is to distinguish between bash <strong>indexed</strong> array and bash <strong>associative</strong> array. The former are arrays in which the keys are ordered integers, 
+while the latter are arrays in which the keys are represented by strings. Although indexed arrays can be initialized in many ways, associative ones can only be 
+created by using the <code>declare</code> command. <br>
+
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+# Create an indexed array
+$ declare -a my_array
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+# Create an associative array
+$ declare -A my_array
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+# Create indexed arrays on the fly
+$ my_array=(foo bar)
+$ my_array[0]=foo
+        ]]>
+      </code>
+    </concept>
+    <concept name="print-values">
+      <title value="Print the values of an array" />
+      <docLink value="https://linuxconfig.org/how-to-use-arrays-in-bash-script" />
+      <description>
+        <![CDATA[
+<code>$ echo ${my_array[@]}</code><br>
+<code>$ echo ${my_array[*]}</code><br>
+Both syntax let us access all the values of the array and produce the same results, unless the expansion it’s quoted. In this case a difference arises: 
+in the first case, when using <code>@</code>, the expansion will result in a word for each element of the array.
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+$ my_array=(foo bar)
+$ for i in "${my_array[@]}"; do echo "$i"; done
+foo
+bar
+$ for i in "${my_array[*]}"; do echo "$i"; done
+foo bar
+        ]]>
+      </code>
+    </concept>
+    <concept name="print-keys">
+      <title value="Print the keys of an array" />
+      <docLink value="https://linuxconfig.org/how-to-use-arrays-in-bash-script" />
+      <description>
+        <![CDATA[
+It’s even possible to retrieve and print the keys used in an indexed or associative array, instead of their respective values. The syntax is almost identical, 
+but relies on the use of the <code>!</code> operator:
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+$ my_array=(foo bar baz)
+$ for index in "${!my_array[@]}"; do echo "$index"; done
+0
+1
+2
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+# for associative arrays
+$ declare -A my_array
+$ my_array=([foo]=bar [baz]=foobar)
+$ for key in "${!my_array[@]}"; do echo "$key"; done
+baz
+foo
+        ]]>
+      </code>
+    </concept>
+    <concept name="getting-array-size">
+      <title value="Getting the size of an array" />
+      <docLink value="https://linuxconfig.org/how-to-use-arrays-in-bash-script" />
+      <description>
+        <![CDATA[
+Use of the <code>#</code> operator:
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+$ my_array=(foo bar baz)
+$ echo "the array contains ${#my_array[@]} elements"
+the array contains 3 elements
+        ]]>
+      </code>
+    </concept>
+    <concept name="adding-elements">
+      <title value="Adding elements to an array" />
+      <docLink value="https://linuxconfig.org/how-to-use-arrays-in-bash-script" />
+      <description>
+        <![CDATA[
+We can add elements to an indexed or associative array by specifying respectively their index or associative key. In the case of indexed arrays, 
+we can also simply add an element, by appending to the end of the array, using the <code>+=</code> operator
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+$ my_array=(foo bar)
+$ my_array+=(baz)
+$ echo "${my_array[@]}"
+foo bar baz
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+# Multiple elements can be added at a time
+$ my_array=(foo bar)
+$ my_array+=(baz foobar)
+$ echo "${my_array[@]}"
+foo bar baz foobar
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+#To add elements to an associative array, we are bound to specify also their associated keys
+$ declare -A my_array
+
+# Add single element
+$ my_array[foo]="bar"
+
+# Add multiple elements at a time
+$ my_array+=([baz]=foobar [foobarbaz]=baz)
+        ]]>
+      </code>
+    </concept>
+    <concept name="deleting-an-element">
+      <title value="Deleting an element from the array" />
+      <docLink value="https://linuxconfig.org/how-to-use-arrays-in-bash-script" />
+      <description>
+        <![CDATA[
+To delete an element from the array we need to know it’s index or its key in the case of an associative array, and use the <code>unset</code> command.<br>
+Deleting an entire array, it’s even simpler: we just pass the array name as an argument to the <code>unset</code> command without specifying any index or key.
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+$ my_array=(foo bar baz)
+$ unset my_array[1]
+$ echo ${my_array[@]}
+foo baz
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+# The same thing it’s valid for associative arrays
+$ declare -A my_array
+$ my_array+=([foo]=bar [baz]=foobar)
+$ unset my_array[foo]
+$ echo ${my_array[@]}
+foobar
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+# delete an array
+$ unset my_array
+$ echo ${!my_array[@]}
+        ]]>
+      </code>
+    </concept>
+  </topic>
+</data>

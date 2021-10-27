@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="user-input">
+    <title value="User input on bash" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+User input on bash
+      ]]>
+    </description>
+    <concept name="read">
+      <title value="read" />
+      <docLink value="https://ryanstutorials.net/bash-scripting-tutorial/bash-input.php" />
+      <description>
+        <![CDATA[
+If we would like to ask the user for input then we use a command called <code>read</code>. This command takes the input and will save it into a variable.<br>
+<pre>
+read var1
+</pre>
+You are able to alter the behaviour of <code>read</code> with a variety of command line options. (See the man page for read to see all of them.) 
+Two commonly used options however are <code>-p</code> which allows you to <strong>specify a prompt</strong> and <code>-s</code> which makes the <strong>input silent</strong>.<br>
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+#!/bin/bash
+# Ask the user for login details
+read -p 'Username: ' uservar
+read -sp 'Password: ' passvar
+echo
+echo Thankyou $uservar we now have your login details
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+#!/bin/bash
+# Demonstrate how read actually works
+echo What cars do you like?
+read car1 car2 car3
+echo Your first car was: $car1
+echo Your second car was: $car2
+echo Your third car was: $car3
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+user@bash: ./cars.sh
+What cars do you like?
+Jaguar Maserati Bentley
+Your first car was: Jaguar
+Your second car was: Maserati
+Your third car was: Bentley
+user@bash: ./cars.sh
+What cars do you like?
+Jaguar Maserati Bentley Lotus
+Your first car was: Jaguar
+Your second car was: Maserati
+Your third car was: Bentley Lotus
+        ]]>
+      </code>
+    </concept>
+    <concept name="stdin">
+      <title value="Reading from STDIN" />
+      <docLink value="https://ryanstutorials.net/bash-scripting-tutorial/bash-input.php" />
+      <description>
+        <![CDATA[
+It's common in Linux to pipe a series of simple, single purpose commands together to create a larger solution tailored to our exact needs. 
+The ability to do this is one of the real strenghs of Linux. It turns out that we can easily accommodate this mechanism with our scripts also. 
+By doing so we can create scripts that act as filters to modify data in specific ways for us.<br>
+Bash accomodates piping and redirection by way of special files. Each process gets it's own set of files (one for STDIN, STDOUT and STDERR respectively) and 
+they are linked when piping or redirection is invoked. Each process gets the following files:
+<ul>
+  <li><strong>STDIN</strong> - /proc/<processID>/fd/0</li>
+  <li><strong>STDOUT</strong> - /proc/<processID>/fd/1</li>
+  <li><strong>STDERR</strong> - /proc/<processID>/fd/2</li>
+</ul>
+To make life more convenient the system creates some shortcuts for us:
+<ul>
+  <li><strong>STDIN</strong> - /prodev/stdin or /proc/self/fd/0</li>
+  <li><strong>STDOUT</strong> - /dev/stdout or /proc/self/fd/1</li>
+  <li><strong>STDERR</strong> - /dev/stderr or /proc/self/fd/2</li>
+</ul>
+<strong>fd</strong> in the paths above stands for file descriptor.
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+#!/bin/bash
+# A basic summary of my sales report
+echo Here is a summary of the sales data:
+echo ====================================
+echo
+cat /dev/stdin | cut -d' ' -f 2,3 | sort
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+user@bash: cat salesdata.txt
+Fred apples 20 October 4
+Susy oranges 5 October 7
+Mark watermelons 12 October 10
+Terry peaches 7 October 15
+user@bash:
+user@bash: cat salesdata.txt | ./summary
+Here is a summary of the sales data:
+====================================
+apples 20
+oranges 5
+peaches 7
+watermelons 12
+        ]]>
+      </code>
+    </concept>
+  </topic>
+</data>

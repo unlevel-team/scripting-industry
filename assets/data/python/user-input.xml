@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="user-input">
+    <title value="User input on python" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+User input on python
+      ]]>
+    </description>
+    <concept name="user-input">
+      <title value="User Input" />
+      <docLink value="https://www.w3schools.com/python/python_user_input.asp" />
+      <description>
+        <![CDATA[
+Python allows for user input.<br>
+That means we are able to ask the user for input.<br>
+The method is a bit different in Python 3.6 than Python 2.7.<br>
+Python 3.6 uses the <code>input()</code> method.<br>
+Python 2.7 uses the <code>raw_input()</code> method.
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+# Python 3.6
+username = input("Enter username:")
+print("Username is: " + username)
+        ]]>
+      </code>
+      <code language="python">
+        <![CDATA[
+# Python 2.7
+username = raw_input("Enter username:")
+print("Username is: " + username)
+        ]]>
+      </code>
+    </concept>
+  </topic>
+</data>

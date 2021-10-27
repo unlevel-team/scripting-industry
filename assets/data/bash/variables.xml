@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="variables">
+    <title value="Bash variables" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+        The Bash variables
+      ]]>
+    </description>
+    <concept name="variables">
+      <title value="Variables" />
+      <docLink value="https://www.shellscript.sh/variables1.html" />
+      <description>
+        <![CDATA[
+Just about every programming language in existence has the concept of variables - a symbolic name for a chunk of memory to which we can assign values, read and manipulate its contents. <br>
+Note that there must be no spaces around the "=" sign: <code>VAR=value</code> works; <code>VAR = value</code> doesn't work. <br>
+The shell does not care about types of variables; they may store strings, integers, real numbers - anything you like. <br>
+The shell-builtin command <code>read</code> which reads a line from standard input into the variable supplied.
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+#!/bin/sh
+MY_MESSAGE="Hello World"
+echo $MY_MESSAGE
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+#!/bin/sh
+echo What is your name?
+read MY_NAME
+echo "Hello $MY_NAME - hope you're well."
+        ]]>
+      </code>
+    </concept>
+    <concept name="scope-variables">
+      <title value="Scope of Variables" />
+      <docLink value="https://www.shellscript.sh/variables1.html" />
+      <description>
+        <![CDATA[
+Variables in the Bourne shell do not have to be declared, as they do in languages like C. But if you try to read an undeclared variable, the result is the empty string. You get no warnings or errors. <br>
+There is a command called <code>export</code> which has a fundamental effect on the scope of variables.
+We need to <code>export</code> the variable for it to be inherited by another program - including a shell script. <br>
+In order to receive environment changes back from the script, we must <strong>source the script</strong> - this effectively runs the script within our own interactive shell, instead of spawning another shell to run it.
+We can source a script via the "." (dot) command
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+#!/bin/sh
+# file myvar2.sh
+echo "MYVAR is: $MYVAR"
+MYVAR="hi there"
+echo "MYVAR is: $MYVAR"
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+$ MYVAR=hello
+$ export MYVAR
+$ ./myvar2.sh
+MYVAR is: hello
+MYVAR is: hi there
+$ echo $MYVAR
+hello
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+$ MYVAR=hello
+$ export MYVAR
+$ echo $MYVAR
+hello
+$ . ./myvar2.sh
+MYVAR is: hello
+MYVAR is: hi there
+$ echo $MYVAR
+hi there
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+#!/bin/sh
+echo "What is your name?"
+read USER_NAME
+echo "Hello $USER_NAME"
+echo "I will create you a file called ${USER_NAME}_file"
+touch "${USER_NAME}_file"
+        ]]>
+      </code>
+    </concept>
+    <concept name="parameters">
+      <title value="Parameters" />
+      <docLink value="https://www.shellscript.sh/variables2.html" />
+      <description>
+        <![CDATA[
+The variable <code>$0</code> is the basename of the program as it was called. <br>
+<code>$1 .. $9</code> are the first 9 additional parameters the script was called with. <br>
+The variable <code>$@</code> is all parameters <strong>$1 .. whatever</strong>. <br>
+<code>$#</code> is the number of parameters the script was called with. <br>
+We can take more than 9 parameters by using the <code>shift</code> command.
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+#!/bin/sh
+# file var3.sh
+echo "I was called with $# parameters"
+echo "My name is $0"
+echo "My first parameter is $1"
+echo "My second parameter is $2"
+echo "All parameters are $@"
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+$ /home/steve/var3.sh
+I was called with 0 parameters
+My name is /home/steve/var3.sh
+My first parameter is
+My second parameter is    
+All parameters are 
+$
+$ ./var3.sh hello world earth
+I was called with 3 parameters
+My name is ./var3.sh
+My first parameter is hello
+My second parameter is world
+All parameters are hello world earth
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+#!/bin/sh
+while [ "$#" -gt "0" ]
+do
+  echo "\$1 is $1"
+  shift
+done   
+        ]]>
+      </code>
+    </concept>
+    <concept name="exit-value">
+      <title value="Exit value" />
+      <docLink value="https://www.shellscript.sh/variables2.html" />
+      <description>
+        <![CDATA[
+Another special variable is <code>$?</code>. This contains the exit value of the last run command.
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+#!/bin/sh
+/usr/local/bin/my-command
+if [ "$?" -ne "0" ]; then
+  echo "Sorry, we had a problem there!"
+fi
+        ]]>
+      </code>
+    </concept>
+    <concept name="environment-variables">
+      <title value="Environment variables" />
+      <docLink value="https://www.shellscript.sh/variables2.html" />
+      <description>
+        <![CDATA[
+The other two main variables set for you by the environment are <code>$$</code> and <code>$!</code>. These are both process numbers.<br>
+The <code>$$</code> variable is the PID (Process IDentifier) of the currently running shell. 
+This can be useful for creating temporary files, such as <code>/tmp/my-script.$$</code> which is useful if many instances of the script could be run at the same time, and they all need their own temporary files. <br>
+The <code>$!</code> variable is the <code>PID</code> of the last run background process. This is useful to keep track of the process as it gets on with its job. <br>
+Another interesting variable is <code>IFS</code>. This is the Internal Field Separator. The default value is <code>SPACE TAB NEWLINE</code>
+        ]]>
+      </description>
+      <code language="bash">
+        <![CDATA[
+#!/bin/sh
+# file var5.sh
+old_IFS="$IFS"
+IFS=:
+echo "Please input some data separated by colons ..."
+read x y z
+IFS=$old_IFS
+echo "x is $x y is $y z is $z"
+        ]]>
+      </code>
+      <code language="bash">
+        <![CDATA[
+$ ./ifs.sh
+Please input some data separated by colons ...
+hello:how are you:today
+x is hello y is how are you z is today
+        ]]>
+      </code>
+    </concept>
+  </topic>
+</data>

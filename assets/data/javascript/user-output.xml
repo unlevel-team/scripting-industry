@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="user-output">
+    <title value="User output on javascript" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+User output on javascript
+      ]]>
+    </description>
+    <concept name="innerhtml">
+      <title value="Using innerHTML" />
+      <docLink value="https://www.w3schools.com/js/js_output.asp" />
+      <description>
+        <![CDATA[
+To access an HTML element, JavaScript can use the <code>document.getElementById(id)</code> method.<br><br>
+The <code>id</code> attribute defines the HTML element. The <code>innerHTML</code> property defines the HTML content.
+        ]]>
+      </description>
+      <code language="html">
+        <![CDATA[
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Web Page</h1>
+<p>My First Paragraph</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = 5 + 6;
+</script>
+
+</body>
+</html>
+        ]]>
+      </code>
+    </concept>
+    <concept name="document.write">
+      <title value="Using document.write()" />
+      <docLink value="https://www.w3schools.com/js/js_output.asp" />
+      <description>
+        <![CDATA[
+For testing purposes, it is convenient to use <code>document.write()</code><br><br>
+Using <code>document.write()</code> after an HTML document is loaded, <strong>will delete all existing HTML</strong>
+        ]]>
+      </description>
+      <code language="html">
+        <![CDATA[
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Web Page</h1>
+<p>My first paragraph.</p>
+
+<script>
+document.write(5 + 6);
+</script>
+
+</body>
+</html>
+        ]]>
+      </code>
+    </concept>
+    <concept name="window.alert">
+      <title value="Using window.alert()" />
+      <docLink value="https://www.w3schools.com/js/js_output.asp" />
+      <description>
+        <![CDATA[
+You can use an alert box to display data
+        ]]>
+      </description>
+      <code language="html">
+        <![CDATA[
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Web Page</h1>
+<p>My first paragraph.</p>
+
+<script>
+window.alert(5 + 6);
+</script>
+
+</body>
+</html>
+        ]]>
+      </code>
+    </concept>
+    <concept name="window.alert">
+      <title value="Using window.alert()" />
+      <docLink value="https://www.w3schools.com/js/js_output.asp" />
+      <description>
+        <![CDATA[
+You can use an alert box to display data
+        ]]>
+      </description>
+      <code language="html">
+        <![CDATA[
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Web Page</h1>
+<p>My first paragraph.</p>
+
+<script>
+window.alert(5 + 6);
+</script>
+
+</body>
+</html>
+        ]]>
+      </code>
+    </concept>
+    <concept name="console.log">
+      <title value="Using console.log()" />
+      <docLink value="https://www.w3schools.com/js/js_output.asp" />
+      <description>
+        <![CDATA[
+For debugging purposes, you can call the <code>console.log()</code> method in the browser to display data.
+        ]]>
+      </description>
+      <code language="html">
+        <![CDATA[
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+console.log(5 + 6);
+</script>
+
+</body>
+</html>
+        ]]>
+      </code>
+    </concept>
+    <concept name="print">
+      <title value="Print" />
+      <docLink value="https://www.w3schools.com/js/js_output.asp" />
+      <description>
+        <![CDATA[
+JavaScript does not have any print object or print methods.<br>
+You cannot access output devices from JavaScript.<br>
+The only exception is that you can call the <code>window.print()</code> method in the browser to print the content of the current window.
+        ]]>
+      </description>
+      <code language="html">
+        <![CDATA[
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="window.print()">Print this page</button>
+
+</body>
+</html>
+        ]]>
+      </code>
+    </concept>
+  </topic>
+</data>

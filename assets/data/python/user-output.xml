@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="user-output">
+    <title value="User output on python" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+User output on python
+      ]]>
+    </description>
+    <concept name="print">
+      <title value="Output Using print() function" />
+      <docLink value="https://www.programiz.com/python-programming/input-output-import" />
+      <description>
+        <![CDATA[
+We use the <code>print()</code> function to output data to the standard output device (screen). It is also possible to output data to a file.<br><br>
+Sometimes we would like to format our output to make it look attractive. This can be done by using the <code>str.format()</code> method. 
+This method is visible to any string object.
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+print('This sentence is output to the screen')
+
+a = 5
+print('The value of a is', a)
+
+print(1, 2, 3, 4)
+print(1, 2, 3, 4, sep='*')
+print(1, 2, 3, 4, sep='#', end='&')
+        ]]>
+      </code>
+      <code language="python">
+        <![CDATA[
+x = 5; y = 10
+print('The value of x is {} and y is {}'.format(x,y))
+# output: The value of x is 5 and y is 10
+        ]]>
+      </code>
+      <code language="python">
+        <![CDATA[
+print('I love {0} and {1}'.format('bread','butter'))
+print('I love {1} and {0}'.format('bread','butter'))
+        ]]>
+      </code>
+    </concept>
+  </topic>
+</data>

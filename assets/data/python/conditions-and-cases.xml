@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <topic name="conditions-and-cases">
+    <title value="Conditions and cases on python" />
+    <!-- <docLink value="https://www.w3schools.com/tags/tag_title.asp" /> -->
+    <description>
+      <![CDATA[
+Conditions and cases on python
+      ]]>
+    </description>
+    <concept name="conditions">
+      <title value="Conditions" />
+      <docLink value="https://www.w3schools.com/python/python_conditions.asp" />
+      <description>
+        <![CDATA[
+Python supports the usual logical conditions from mathematics: <br>
+<ul>
+  <li>Equals: <code>a == b</code></li>
+  <li>Not Equals: <code>a != b</code></li>
+  <li>Less than: <code>a &lt; b</code></li>
+  <li>Less than or equal to: <code>a &lt;= b</code></li>
+  <li>Greater than: <code>a &gt; b</code></li>
+  <li>Greater than or equal to: <code>a &gt;= b</code></li>
+</ul>
+These conditions can be used in several ways, most commonly in "if statements" and loops. <br>
+Python relies on <strong>indentation</strong> (whitespace at the beginning of a line) to define scope in the code. Other programming languages often use curly-brackets for this purpose.
+        ]]>
+      </description>
+    </concept>
+    <concept name="if">
+      <title value="If statements" />
+      <docLink value="https://www.w3schools.com/python/python_conditions.asp" />
+      <description>
+        <![CDATA[
+An "if statement" is written by using the <code>if</code> keyword. <br>
+The <code>elif</code> keyword is pythons way of saying "if the previous conditions were not true, then try this condition". <br>
+The <code>else</code> keyword catches anything which isn't caught by the preceding conditions.
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+a = 200
+b = 33
+if b > a:
+  print("b is greater than a")
+elif a == b:
+  print("a and b are equal")
+else:
+  print("a is greater than b")
+        ]]>
+      </code>
+    </concept>
+    <concept name="short-hand-if">
+      <title value="Short Hand If" />
+      <docLink value="https://www.w3schools.com/python/python_conditions.asp" />
+      <description>
+        <![CDATA[
+If you have only one statement to execute, one for <code>if</code>, and one for <code>else</code>, you can put it all on the same line
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+a = 2
+b = 330
+if a > b: print("a is greater than b")
+print("A") if a > b else print("B")
+
+a = 330
+b = 330
+print("A") if a > b else print("=") if a == b else print("B")
+        ]]>
+      </code>
+    </concept>
+    <concept name="and">
+      <title value="And" />
+      <docLink value="https://www.w3schools.com/python/python_conditions.asp" />
+      <description>
+        <![CDATA[
+The <code>and</code> keyword is a logical operator, and is used to combine conditional statements
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+a = 200
+b = 33
+c = 500
+if a > b and c > a:
+  print("Both conditions are True")
+        ]]>
+      </code>
+    </concept>    
+    <concept name="or">
+      <title value="Or" />
+      <docLink value="https://www.w3schools.com/python/python_conditions.asp" />
+      <description>
+        <![CDATA[
+The <code>or</code> keyword is a logical operator, and is used to combine conditional statements
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+a = 200
+b = 33
+c = 500
+if a > b or a > c:
+  print("At least one of the conditions is True")
+        ]]>
+      </code>
+    </concept>
+    <concept name="nested-if">
+      <title value="Nested If" />
+      <docLink value="https://www.w3schools.com/python/python_conditions.asp" />
+      <description>
+        <![CDATA[
+You can have <code>if</code> statements inside <code>if</code> statements, this is called nested <code>if</code> statements
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+x = 41
+
+if x > 10:
+  print("Above ten,")
+  if x > 20:
+    print("and also above 20!")
+  else:
+    print("but not above 20.")
+        ]]>
+      </code>
+    </concept>
+    <concept name="pass">
+      <title value="The pass Statement" />
+      <docLink value="https://www.w3schools.com/python/python_conditions.asp" />
+      <description>
+        <![CDATA[
+<code>if</code> statements cannot be empty, but if you for some reason have an <code>if</code> statement with no content, 
+put in the <code>pass</code> statement to avoid getting an error.
+        ]]>
+      </description>
+      <code language="python">
+        <![CDATA[
+x = 41
+
+if x > 10:
+  print("Above ten,")
+  if x > 20:
+    print("and also above 20!")
+  else:
+    print("but not above 20.")
+        ]]>
+      </code>
+    </concept>
+  </topic>
+</data>
