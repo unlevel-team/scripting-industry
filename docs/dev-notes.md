@@ -29,8 +29,6 @@
 
 ## TODO
 
-### Topic for Form validation
-
 ## References
 https://v3.vuejs.org/guide/template-syntax.html
 
